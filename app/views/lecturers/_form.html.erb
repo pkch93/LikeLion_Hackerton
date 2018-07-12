@@ -1,0 +1,57 @@
+<%= form_for(@lecturer) do |f| %>
+  <% if @lecturer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lecturer.errors.count, "error") %> prohibited this lecturer from being saved:</h2>
+
+      <ul>
+      <% @lecturer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :lec_id %><br>
+    <%= f.text_field :lec_id %>
+  </div>
+  <div class="field">
+    <%= f.label :pw %><br>
+    <%= f.text_field :pw %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :sex %><br>
+    <%= f.text_field :sex %>
+  </div>
+  <div class="field">
+    <%= f.label :age %><br>
+    <%= f.number_field :age %>
+  </div>
+  <div class="field">
+    <%= f.label :career %><br>
+    <%= f.number_field :career %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :region %><br>
+    <%= f.text_field :region %>
+  </div>
+  <div class="field">
+    <%= f.label :intro %><br>
+    <%= f.text_area :intro %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

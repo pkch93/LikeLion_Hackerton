@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  intro: MyText
+  time: 2018-07-12
+  subject: MyString
+  rate: 1
+
+two:
+  title: MyString
+  intro: MyText
+  time: 2018-07-12
+  subject: MyString
+  rate: 1
