@@ -1,7 +1,70 @@
-<!-- 회원가입 -->
-
-<h1>New Lecturer</h1>
-
-<%= render 'form' %>
-
+<div class="join">
+    <div class="join__container">
+    <header class="join__header">
+        <img class="join__header--logo" src="#">
+    </header>
+<%= form_for(@lecturer) do |f| %>
+  <% if @lecturer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lecturer.errors.count, "error") %> prohibited this lecturer from being saved:</h2>
+      <ul>
+      <% @lecturer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="join__field">
+    <%= f.label "아이디" %><br>
+    <%= f.text_field :lec_id, class: :int %>
+  </div>
+  <div class="field">
+    <%= f.label "비밀번호" %><br>
+    <%= f.password_field :pw, class: :int %>
+  </div>
+  <div class="field">
+    <%= f.label "이름" %><br>
+    <%= f.text_field :name, class: :int %>
+  </div>
+  <div class="field">
+    <%= f.fields_for :categories do |c_form| %>
+      <%= c_form.label "카테고리" %><br>
+      <%= c_form.text_field :category, class: :int %>
+    <% end %>
+  </div>
+  
+  <div class="field">
+    <%= f.label "성별" %><br>
+    <%= f.text_field :sex %>
+  </div>
+  <div class="field">
+    <%= f.label "나이" %><br>
+    <%= f.number_field :age, class: :int %>
+  </div>
+  <div class="field">
+    <%= f.label "경력" %><br>
+    <%= f.number_field :career, class: :int %>
+  </div>
+  <div class="field">
+    <%= f.label "연락처" %><br>
+    <%= f.telephone_field :phone, class: :int %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.email_field :email, class: :int %>
+  </div>
+  <div class="field">
+    <%= f.label "주 활동지역" %><br>
+    <%= f.text_field :region, class: :int %>
+  </div>
+  <div class="field">
+    <%= f.label "소개글" %><br>
+    <%= f.text_area :intro, class: :int %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
 <%= link_to 'Back', lecturers_path %>
+</div>
+</div>

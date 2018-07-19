@@ -5,6 +5,7 @@ class LecturersController < ApplicationController
   # GET /lecturers.json
   def index
     @lecturers = Lecturer.all
+    
   end
 
   # GET /lecturers/1
@@ -16,6 +17,7 @@ class LecturersController < ApplicationController
   # GET /lecturers/new
   def new
     @lecturer = Lecturer.new
+    # 2.times { @lecturer.categories.build }
   end
 
   # GET /lecturers/1/edit

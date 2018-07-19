@@ -10,9 +10,6 @@ class LecturesController < ApplicationController
   def update
   end
 
-  def destroy
-  end
-
   def show
   end
 end

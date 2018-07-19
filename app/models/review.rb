@@ -1,3 +1,3 @@
 class Review < ActiveRecord::Base
-    belongs_to :Lecture
+    belongs_to :lecture
 end

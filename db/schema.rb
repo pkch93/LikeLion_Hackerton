@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180712013440) do
+ActiveRecord::Schema.define(version: 20180719012324) do
+
+  create_table "lecture_categories", force: :cascade do |t|
+    t.string   "lec_category"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "lecturer_categories", force: :cascade do |t|
+    t.string   "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "lecturers", id: false, force: :cascade do |t|
     t.string   "lec_id"
@@ -24,6 +36,7 @@ ActiveRecord::Schema.define(version: 20180712013440) do
     t.string   "email"
     t.string   "region"
     t.text     "intro"
+    t.string   "lec_img"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -34,6 +47,7 @@ ActiveRecord::Schema.define(version: 20180712013440) do
     t.date     "time"
     t.string   "subject"
     t.integer  "rate"
+    t.string   "lec_poster"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,0 +1,16 @@
+<nav class="navbar">
+    <img class="navbar--logo" src="<%=asset_path 'logo.png'%>"/>
+    <ul class="navbar__list">
+        <li class="navbar__list--elt"><a href="#">궁금한강사</a> |&nbsp;</li>
+        <li class="navbar__list--elt"><a href="#">강사검색</a> |&nbsp;</li>
+        <li class="navbar__list--elt"><a href="#">최신 강사리뷰</a> |&nbsp;</li>
+        <li class="navbar__list--elt"><a href="#">강사보러가기</a> |&nbsp;</li>
+        <li class="navbar__list--elt"><a href="#">문의하기</a> | &nbsp;</li>
+        <% if session[:id] %>
+            <li class="navbar__list--elt"><a href="login/logout"> 로그아웃</a></li>
+        <% else %>
+            <li class="navbar__list--elt"><a href="login/login"> 로그인 |&nbsp;</a></li>
+            <li class="navbar__list--elt"><a href="<%=new_lecturer_url%>">회원가입</a></li>
+        <% end %>
+    </ul>
+</nav>

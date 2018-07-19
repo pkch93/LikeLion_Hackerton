@@ -2,7 +2,6 @@
   <% if @lecturer.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@lecturer.errors.count, "error") %> prohibited this lecturer from being saved:</h2>
-
       <ul>
       <% @lecturer.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,19 +9,25 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= f.label :lec_id %><br>
     <%= f.text_field :lec_id %>
   </div>
   <div class="field">
     <%= f.label :pw %><br>
-    <%= f.text_field :pw %>
+    <%= f.password_field :pw %>
   </div>
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+  <div class="field">
+    <%= f.fields_for :categories do |c_form| %>
+      <%= c_form.label :category %><br>
+      <%= c_form.text_field :category %>
+    <% end %>
+  </div>
+  
   <div class="field">
     <%= f.label :sex %><br>
     <%= f.text_field :sex %>
@@ -37,11 +42,11 @@
   </div>
   <div class="field">
     <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
+    <%= f.telephone_field :phone %>
   </div>
   <div class="field">
     <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <%= f.email_field :email %>
   </div>
   <div class="field">
     <%= f.label :region %><br>

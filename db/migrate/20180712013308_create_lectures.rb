@@ -6,7 +6,8 @@ class CreateLectures < ActiveRecord::Migration
       t.date :time
       t.string :subject
       t.integer :rate
-
+      t.string :lec_poster # 강연 포스터 저장
+      
       t.timestamps null: false
     end
   end
