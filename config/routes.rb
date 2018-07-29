@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
 
   root 'lecturers#index'
+  
+  # login routes
   get 'login/login'
   get 'login/logout'
-  
+  get 'login/find'
   post 'login/logincheck'
+  post 'login/idfind'
+  post 'login/pwfind'
+  get 'login/findresult'
+  # review create routes
+  post 'lectures/create_review'
+  
   resources :lecturers
   resources :lectures, only: [:new, :create ,:edit, :update ,:show, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.

@@ -5,3 +5,43 @@
 2. 왼쪽 상단에는 강연의 포스터, 오른쪽에는 강연 소개
 3. 페이지 하단에는 해당 강연을 본 관객들의 리뷰가 익명으로 개시
 %>
+
+<div>
+    <p>강연 이름</p>
+    <p><%= @lecture.title %></p>
+</div>
+
+<%# 리뷰 작성 폼 %>
+<%= form_for(@review, url: {controller: :lectures, action: :create_review}) do |f| %>
+    <%= f.hidden_field :lecture, value: @lecture.id %> 
+    <div class="field">
+        <%= f.label :sex, "작성자 성별" %>
+        <%= f.text_field :sex %>
+    </div>
+    <div class="field">
+        <%= f.label :age, "작성자 연령대" %>
+        <%= f.number_field :age %>
+    </div>
+    <div class="field">
+        <%= f.label :background, "배경지식" %>
+        <%= f.text_field :background %>
+    </div>
+    <div class="field">
+        <%= f.label :point, "평점" %>
+        <%= f.text_field :point %>
+    </div>
+    <div class="field">
+        <%= f.label :content, "리뷰 내용" %>
+        <%= f.text_area :content %>
+    </div>
+    <div class="field">
+        <%= f.submit "리뷰 작성" %>
+    </div>
+<% end %>
+
+<%# 해당 강연의 리뷰 목록%>
+<% @reviews.each do |r|%>
+    <div>
+        <%= r.content %>
+    </div>
+<% end %>

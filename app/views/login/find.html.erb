@@ -1,0 +1,17 @@
+<h1>아이디 찾기</h1>
+
+<form action="idfind" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>" />
+    <p>이름 : <input type="text" name="name" /></p>
+    <p>핸드폰 번호 :<input type="text" name="phonenumber" /></p>
+    <p><input type="submit" value="아이디 찾기" /></p>
+</form>
+<h1>비밀번호 찾기</h1>
+
+<form action="pwfind" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>" />
+    <p>아이디 : <input type="text" name="find_id" /></p>
+    <p>이름 : <input type="text" name="name" /></p>
+    <p>핸드폰 번호 : <input type="text" name="phonenumber" /></p>
+    <p><input type="submit" value="비밀번호 찾기" /></p>
+</form>

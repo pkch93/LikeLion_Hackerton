@@ -1,0 +1,4 @@
+<h1><%= @user_name %>님의 비밀번호 목록입니다.</h1>
+<% @lec.each do |lec|%>
+    <p><%=lec.lec_id%>님의 비밀번호 <%=lec.pw%></p>
+<% end %>

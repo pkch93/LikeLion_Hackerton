@@ -22,5 +22,7 @@ module Workspace
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    # 모듈간 헬퍼가 겹치는 것을 방지하기 위한 설정
+    config.action_controller.include_all_helpers = false
   end
 end

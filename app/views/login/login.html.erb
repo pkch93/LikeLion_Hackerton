@@ -1,48 +1,20 @@
-<h1>login view</h1>
-
-<%#
-로그인시 아이디, 비밀번호 받는 input 필요
-%>
-<%= form_tag({controller: :login, action: :logincheck}) do %>
-    <div class="field">
-        <%= label_tag "아이디" %>
-        <%= text_field_tag :lec_id %>
-    </div>
-    <div class="field">
-        <%= label_tag "비밀번호" %>
-        <%= password_field_tag :lec_pw %>
-    </div>
-    <div class="field">
-        <%= submit_tag "로그인" %>
-    </div> 
-<% end %>
-
-
-<!--아이디 찾기-->
-<form action="logincheck" method="POST">
-    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>" />
-    <div class="field">
-        <label for="int_id">이름</label><br/>
-        <input id="int_id" type="text" name="lec_id" />
-    </div>
-    <div class="field">
-        <label for="int_pw">전화번호</label><br/>
-        <input id="int_pw" type="password" name="lec_pw" />
-    </div>
-    <input type="submit" value="아이디 찾기" />
-</form>
-
-
-<!--비밀번호 찾기-->
-<form action="logincheck" method="POST">
-    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>" />
-    <div class="field">
-        <label for="int_id">아이디</label><br/>
-        <input id="int_id" type="text" name="lec_id" />
-    </div>
-    <div class="field">
-        <label for="int_pw">전화번호</label><br/>
-        <input id="int_pw" type="password" name="lec_pw" />
-    </div>
-    <input type="submit" value="비밀번호 찾기" />
-</form>
+<section class="login">
+    <article class="login__container container">
+    <%= image_tag "logo.png", class: "header--logo login__header--logo"%>
+    
+    <%= form_tag(login_logincheck_path) do %>
+        <%= label_tag :lec_id, '아이디', class: "field__label" %>
+        <div class="field">
+            <%= text_field_tag :lec_id, "", class: "field__input" %>
+        </div>
+        <%= label_tag :lec_pw, '비밀번호', class: "field__label" %>
+        <div class="field">
+            <%= password_field_tag :lec_pw, "", class: "field__input" %>
+        </div>
+        <div class="action">
+            <%= submit_tag "로그인", data: {disable_with: "로그인 처리 중.."}, class: "field field--submit"%>
+        </div> 
+    <% end %>
+    <%= link_to '아이디 / 비밀번호 찾기', login_find_url, class: "login--find"%>
+    </article>
+</section>

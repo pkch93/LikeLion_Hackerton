@@ -4,11 +4,9 @@
 1. 강사 사진 및 프로필이 왼쪽 화면에 위치
 2. 오른쪽에는 해당 강사의 강연 목록들이 배치
 %>
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Id:</strong>
-  <%= @lecturer.id %>
+  <%= @lecturer.lec_id %>
 </p>
 
 <p>
@@ -56,5 +54,22 @@
   <%= @lecturer.intro %>
 </p>
 
+<p>
+  <strong>Category:</strong>
+  <ul>
+  <% @lecturer.lecturer_categories.each do |ct| %>
+    <li><%= ct.category %></li>
+  <% end %>
+  </ul>
+</p>
+
+<div class="lecture__list">
+  <% @lectures.each do |lec| %>
+    <p>강연제목 : <%=lec.title%></p>
+    <p>강연일시 : <%=lec.time%></p>
+    <p><%= link_to "강연 조회", lecture_path(lec) %></p>
+  <% end %>
+</div>
+
 <%= link_to 'Edit', edit_lecturer_path(@lecturer) %> |
-<%= link_to 'Back', lecturers_path %>
+<%= link_to 'Back', :back %>

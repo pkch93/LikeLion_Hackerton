@@ -1,3 +1,28 @@
 // Place all the styles related to the Login controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.login--find {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #000000;
+}
+
+.login--find:hover{
+    color: #0000CD;
+}
+
+@media screen and (max-width: 500px){
+    .container {
+        width: 500px;
+        margin: 0 auto;
+    }
+    
+    .header--logo{
+        display: block;
+        width: 300px;
+        margin: 0 auto;    
+    }
+}

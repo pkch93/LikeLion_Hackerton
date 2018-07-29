@@ -7,7 +7,8 @@ class CreateReviews < ActiveRecord::Migration
       t.integer :point
       t.boolean :recommend
       t.text :content
-
+      t.references :lecture
+      
       t.timestamps null: false
     end
   end

@@ -1,47 +1,21 @@
-<!-- 초기 페이지 -->
-
-<p id="notice"><%= notice %></p>
-
-<%# 네비바 %>
-<%= render 'nav' %>
-
-<img class="intro_img" src="<%=asset_path 'intro.gif'%>" style="width: 100%; border: 1px white solid;"></img>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-    </tr>
-  </thead>
-  
-
+<%= image_tag "intro.gif", alt: "궁금한강사 소개 영상", class: "intro_img" %>
 
   <tbody>
     <% @lecturers.each do |lecturer| %>
       <tr>
-        <td><%= link_to "#{lecturer.name}", lecturer %></td>
+        <td><%= link_to "#{lecturer.name}", lecturer, class: "lecturer__name"%></td>
+        <% if user_signed_in?
+            if current_user.lec_id == lecturer.lec_id %>
         <td><%= link_to 'Edit', edit_lecturer_path(lecturer) %></td>
-        <td><%= button_to 'Destroy', lecturer, method: :delete, data: {confirm: "Are you sure?" } %></td>
+        <td><%= link_to 'Destroy', lecturer, method: :delete, data: {confirm: "Are you sure?" } %></td>
+        <% end 
+          end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<div>
-  <button type="button" class="btn btn-warning btn-lg" onclick="goPage()">강사 더보기</button>
-  
-  <script type="text/javascript"> function goPage()
-  { location.href="/category"; }
-  </script>
-
-  <input type="button" name="버튼" value="강사더보기" onclick="location.href='category'";>
-</div>
-
-
-<footer>
-
+<footer class="information">
 (주) 궁금한강사 </br>
 주소 : 대전광역시 유성구 궁동로 479, 공대 5호관 2층 </br> 
 대표이사 : 이세록 | 사업자등록번호: 742-00-00000 </br>
@@ -49,5 +23,4 @@
 전화번호 : 0000-0000 </br>
 전자우편주소 : aaaaaa@aaaaa.com </br>
 Copyright 궁금한강사 Corp. All rights reserved. </br>
-
 </footer>

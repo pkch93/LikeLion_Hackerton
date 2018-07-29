@@ -1,5 +1,31 @@
 <h1>강연 등록 페이지</h1>
 
-<%#
-1. 강사가 로그인되어 있어야 강연 등록이 가능
-%>
+<%= form_for(@lecture) do |f|%>
+    <%= f.hidden_field :lecturer, value: current_user.id %>
+    <div class="field">
+        <%= f.label :title, "강연 이름" %>
+        <%= f.text_field :title %>
+    </div>
+    <div class="field">
+        <%= f.label :time, "강연 일시" %>
+        <%= f.datetime_field :time %>
+    </div>
+    <div class="field">
+        <%= f.label :subject, "강연 주제" %>
+        <%= f.text_field :subject %>
+    </div>
+    <div class="field">
+        <%= f.label :intro, "강연 소개" %>
+        <%= f.text_area :intro %>
+    </div>
+    <div class="field">
+        <%= fields_for :lecture_categories do |cf| %>
+          <%= cf.label :lec_category, "카테고리" %><br>
+          <%= cf.text_field :lec_category %>
+        <% end %>
+    </div>
+    <%# lecture_category DB에 카테고리가 저장되도록 Controller 수정 필요 %>
+    <div class="field">
+        <%= f.submit "강연등록" %>
+    </div>
+<% end %>
