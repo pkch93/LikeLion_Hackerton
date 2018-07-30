@@ -1,17 +1,60 @@
-<h1>아이디 찾기</h1>
-
-<form action="idfind" method="POST">
-    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>" />
-    <p>이름 : <input type="text" name="name" /></p>
-    <p>핸드폰 번호 :<input type="text" name="phonenumber" /></p>
-    <p><input type="submit" value="아이디 찾기" /></p>
-</form>
-<h1>비밀번호 찾기</h1>
-
-<form action="pwfind" method="POST">
-    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>" />
-    <p>아이디 : <input type="text" name="find_id" /></p>
-    <p>이름 : <input type="text" name="name" /></p>
-    <p>핸드폰 번호 : <input type="text" name="phonenumber" /></p>
-    <p><input type="submit" value="비밀번호 찾기" /></p>
-</form>
+<section class="srh__container">
+    <article class="idsrh">
+        <div class="srh__top">
+            <h3 class="srh__top--title">아이디 찾기</h3>
+            <p class="srh__top--content">
+                회원가입 시 등록했던 정보로 아이디를 찾아보세요!
+            </p>
+        </div>
+        <div class="srh__main">
+            <%= form_tag login_idfind_path do %>
+                <div class="srh__main--elt">
+                    <%= label_tag :name, "이름 ", class: "srh__main--label"%><br/>
+                    <%= text_field_tag :name, "", class: "srh__main--input" %>
+                </div>
+                <div class="srh__main--elt">
+                    <%= label_tag :phone1, "휴대폰 번호 ", class: "srh__main--label" %><br/>
+                    <%= select_tag :phone,
+                    options_for_select([["010"], ["011"], ["016"], ["017"], ["018"], ["019"]], class: "srh__main--phone")%>
+                    -
+                    <%= text_field_tag :phone2, "", {size: 1 , class: "srh__main--phone" }%>
+                    -
+                    <%= text_field_tag :phone3, "", {size: 1, class: "srh__main--phone"} %>
+                </div>
+                <div class="srh__main--elt">
+                    <%= label_tag :email, "이메일 주소 ", class: "srh__main--label" %><br/>
+                    <%= email_field_tag :email, "", class: "srh__main--input" %>
+                </div>
+                <div class="srh__main--elt">
+                    <%= submit_tag "찾기", class: "srh__main--submit" %>
+                </div>
+            <% end %>
+        </div>
+    </article>
+    <article class="pwsrh">
+        <div class="srh__top">
+            <h3 class="srh__top--title">비밀번호 찾기</h3>
+            <p class="srh__top--content">
+                회원가입 시 등록했던 정보로 비밀번호를 찾아보세요!
+            </p>
+        </div>
+        <div class="srh__main">
+            <%= form_tag login_pwfind_path do %>
+                <div class="srh__main--elt">
+                    <%= label_tag :id, "아이디 ", class: "srh__main--label"%>
+                    <%= text_field_tag :id, "", class: "srh__main--input" %>
+                </div>
+                <div class="srh__main--elt">
+                   <%= label_tag :name, "이름 ", class: "srh__main--label"%>
+                    <%= text_field_tag :name, "", class: "srh__main--input" %>
+                </div>
+                <div class="srh__main--elt">
+                    <%= label_tag :email, "이메일 주소 ", class: "srh__main--label" %>
+                    <%= email_field_tag :email, "", class: "srh__main--input" %>
+                </div>
+                <div class="srh__main--elt">
+                    <%= submit_tag "찾기", class: "srh__main--submit" %>
+                </div>
+            <% end %>
+        </div>
+    </article>

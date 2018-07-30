@@ -1,0 +1,9 @@
+<div class="srhmodal">
+    <div class="srhmodal--content">
+        <%# 검색 폼 %>
+        <%= form_tag lecturers_search_path do %>
+           <%= image_tag "search-solid", class: "srhmodal--img" %> <%= text_field_tag :search_lec, "", class: "srhmodal--input"%>
+           <%= submit_tag "검색", class: "srhmodal--submit" %>
+        <% end %>
+    </div>
+</div>

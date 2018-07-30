@@ -10,9 +10,11 @@ Rails.application.routes.draw do
   post 'login/idfind'
   post 'login/pwfind'
   get 'login/findresult'
-  # review create routes
+  # review create route
   post 'lectures/create_review'
   
+  # lecturer search route
+  post 'lecturers/search'
   resources :lecturers
   resources :lectures, only: [:new, :create ,:edit, :update ,:show, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.

@@ -57,6 +57,10 @@ class LecturersController < ApplicationController
     session[:id] = nil
     @current_user = nil
   end
+  
+  def search
+    @lecturers = Lecturer.where("NAME LIKE ?", "%#{params[:search_lec]}%").order(:name)
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

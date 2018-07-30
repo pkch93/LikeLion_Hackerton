@@ -14,3 +14,17 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+var btn = document.getElementById("search__modal");
+
+var modal = document.getElementsByClassName("srhmodal")[0];
+
+btn.addEventListener("click", function(){
+    modal.style.display = "block";
+})
+
+window.onclick = function(e){
+    if(e.target == modal){
+        modal.style.display = "none";
+    }
+}

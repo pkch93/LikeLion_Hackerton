@@ -12,10 +12,52 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
 
 * {
     box-sizing: border-box;   
+}
+
+/*
+    강사 검색 Modal 창 css
+*/
+
+.srhmodal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.srhmodal--content {
+    background-color: #fefefe;
+    margin: 8% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */                          
+}
+
+.srhmodal--img{
+    width: 20px;
+}
+
+.srhmodal--input {
+    width: 85%;
+    height: 30px;
+}
+
+.srhmodal--submit {
+    border: none;
+    background-color: #000000;
+    color: #ffffff;
+    height: 30px;
 }
 
 @media screen and (max-width: 880px){

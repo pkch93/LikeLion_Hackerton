@@ -2,12 +2,12 @@
 
 Ruby on Rails Project for LIKELION 6th Hackerton
 
-> 개발 환경
+> ## 개발 환경
 > - Ruby 2.3.4
 > - Rails 4.2.5
 > - c9
 
-> <!DOCTYPE> 멤버
+> ## <!DOCTYPE> 멤버
 > - 이세록
 >   아이디어 제공자 및 디자인, front-end
 > - 김유리
@@ -86,7 +86,7 @@ Ruby on Rails Project for LIKELION 6th Hackerton
     
 ## 개발 진행 내용
 
-### 7.29일 현재
+#### 07.29 Sunday
     
     - 회원가입 및 로그인 기능 완료
     
@@ -97,9 +97,22 @@ Ruby on Rails Project for LIKELION 6th Hackerton
      
      회원가입 및 로그인, 네비바까지 된 상태
 
+#### 07.30 Monday
+
+    - 아이디 / 비밀번호 찾기 디자인 구현
+    
+    다만, 디자인을 바꾸면서 컨트롤러에 파라미터 받는 부분이 달라졌기 때문에 수정이 필요
+    
+    - 강사 검색 기능 구현
+    
+    강사 검색 창을 Modal로 구현하고 Controller 부분 코딩도 완료.
+    단, 검색 결과를 보여주는 부분 디자인이 필요하다.
+
 ## ※ 참고
 
-### front-end class 의미
+### front-end
+
+#### class 의미
 
 - ```container```
 
@@ -112,5 +125,9 @@ Ruby on Rails Project for LIKELION 6th Hackerton
 - ```login, login__*, login--*```
 
 로그인 페이지에 대해 적용하는 class
+
+- ```srh```
+
+srh가 붙어있는 class는 아이디, 비밀번호 찾기와 관련된 class
 
 ### back-end

@@ -1,4 +1,6 @@
 class LoginController < ApplicationController
+  before_action :set_navbar, except: [:login]
+  
   def login
   end
   
@@ -9,10 +11,10 @@ class LoginController < ApplicationController
   end
   
   def idfind
-    name = params[:lecturer_name]
-    phone = params[:lecturer_phone]
+    name = params[:name]
+    phonenumber = params[:phonenumber]
     
-    @lec = Lecturer.where(name: name, phone: phone) # 일치하지 않더라도 빈 객체가 return
+    @lec = Lecturer.where(name: name, phone: phonenumber) # 일치하지 않더라도 빈 객체가 return
     @user_name = name
     if @lec.empty?
       render text: "일치하는 아이디가 없습니다."
@@ -20,11 +22,11 @@ class LoginController < ApplicationController
   end
   
   def pwfind
-    id = params[:lecturer_id]
-    name = params[:lecturer_name]
-    phone = params[:lecturer_phone]
+    find_id = params[:find_id]
+    name = params[:name]
+    phonenumber = params[:phonenumber]
     
-    @lec = Lecturer.where(lec_id: id, name: name, phone: phone)
+    @lec = Lecturer.where(lec_id: find_id, name: name, phone: phonenumber)
     @user_name = name
     if @lec.empty?
       render text: "해당 정보로 가입된 회원이 없습니다."

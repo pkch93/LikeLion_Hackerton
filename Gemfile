@@ -30,7 +30,8 @@ gem 'devise'
 
 # file uploader
 gem 'carrierwave'
-
+# font awesome
+gem 'font-awesome-rails'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
