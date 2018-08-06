@@ -1,0 +1,108 @@
+/* 리뷰 목록 */
+.reviews {
+    margin-right : auto;
+    margin-left : auto;
+    width : 1000px;
+}
+
+/* 리뷰 폼 */
+
+#write__review{
+    display: inline-block;
+    padding: 20px;
+    background-color: #191970;
+    color: #ffffff;
+    cursor: pointer;
+    margin-left: 17%;
+}
+#review__modal{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #ffffff;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.modal--close{
+    display: block;
+    float: right;
+    font-size: 50px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.field .field__radio--age{
+    display: inline-block;
+    width: 15.0%;
+    height: 50px;
+    border: 1px solid #ffffff;
+    padding-top: 15px;
+    text-align: center;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+
+.field__radio--point{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
+    text-align: center;
+    color: #777777;
+    cursor: pointer;
+}
+.field__radio--point.staron{
+    margin-left: 0;
+    color: #FFD700;
+}
+
+.review__form {
+    margin: 100px auto 0 auto;
+    width : 60%;
+}
+
+.review__field {
+    display: flex;
+    justify-content: center;
+}
+
+.review__label {
+    color: #ffffff;
+}
+.review--text {
+    height: 100px;
+}
+
+/* review 목록 */
+
+.reviews {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.review__container {
+    border-bottom: 1px solid #CDCDCD;
+    margin: 10px 0;
+    padding: 0 20px;
+}
+
+.review__container .review--userdata{
+    font-weight: bold;
+    font-size: 13px;
+    color: #CDCDCD;
+}
+
+.review__container .review__eval {
+    color: #708090;
+}
+
+.review__eval > .review__eval--star{
+    color: #FFD700;
+    font-size: 20px;
+}

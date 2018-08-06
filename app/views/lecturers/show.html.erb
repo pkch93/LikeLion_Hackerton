@@ -8,7 +8,11 @@
     <h1 class='lecturer--name'><%=@lecturer.name%> 강사</h1>
     <div class='lecturer__introbox introbox'>
         <div class='lecturer__profile'>
-              <%= image_tag "#{@lecturer.lec_img}", class: "lecturer__profile--img" %> <p/>
+            <% if !@lecturer.lec_img.blank? %>
+              <%= image_tag "#{@lecturer.lec_img}", class: "lecturer__profile--img" %>
+            <% else %>
+              <%= image_tag "basic_lecturer.JPG", class: "lecturer__profile--img" %>
+            <% end %>
                <table class="lecturer__table table" border="2">
                 <tr class="lecturer__tablerow table__row">
                     <th class="lecturer__tablerow--sex table--elt">성별</th>
@@ -44,7 +48,11 @@
         <% @lectures.each do |lec| %>
             <div class="lecture__menu--list">
                 <a href="<%=lecture_path(lec.id)%>">
-                    <%= image_tag "#{lec.lec_poster}", class: "lecture--img image"%>
+                    <% if !lec.lec_poster.blank? %>
+                        <%= image_tag "#{lec.lec_poster}", class: "lecture--img image"%>
+                    <% else %>
+                        <%= image_tag "basic_lecture.JPG", class: "lecture--img image"%>
+                    <% end %>
                     <p><%=lec.title%></p>
                 </a>
             </div>

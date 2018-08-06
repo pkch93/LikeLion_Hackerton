@@ -24,8 +24,8 @@ class LoginController < ApplicationController
   
   def pwfind
     id = params[:id]
-    name = params[:name]
-    email = params[:email]
+    name = params[:pw_name]
+    email = params[:pw_email]
     
     @lec = Lecturer.where(lec_id: id, name: name, email: email)
     @user_name = name

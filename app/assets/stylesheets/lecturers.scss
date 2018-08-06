@@ -18,7 +18,8 @@ html, body, .login{
 }
 
 .field {
-    display: block;
+    display: flex;
+    justify-content: center;
     position: relative;
     width: 100%;
     height: 75px;
@@ -56,7 +57,7 @@ html, body, .login{
     border: 1px solid #ffffff;
 }
 
-.field input[type="radio"]:checked + span{
+.field--sex input[type="radio"]:checked + span{
     background-color: #000000;
     color: #ffffff;
 }
@@ -280,12 +281,12 @@ html, body, .login{
 // 쇼페이지 스타일링
 
 .lecturer, .lecture {
-    margin: 80px 200px;
+    margin: 80px 100px;
 }
 
 .introbox{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
     margin-bottom: 100px;
 }
@@ -305,6 +306,7 @@ html, body, .login{
     border: 1px solid #CCCCCC;
     width:100%;
     height:100px;
+    margin-top: 10px;
 }
 .table__row th {
     width: 75px;
@@ -326,7 +328,7 @@ html, body, .login{
 }
 
 .lecturer__intro--title{
-    margin: 100px;
+    margin: 100px 0;
     text-align: center;   
 }
 .lecturer__intro--content{

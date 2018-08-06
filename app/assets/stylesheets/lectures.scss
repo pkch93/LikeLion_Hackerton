@@ -35,54 +35,13 @@
     vertical-align: top;
 }
 
-/* 리뷰 목록 */
-.reviews {
-    margin-right : auto;
-    margin-left : auto;
-    width : 1000px;
+.lecture__intro {
+    border: 1px dashed #CDCDCD;
 }
-
-/* 리뷰 폼 */
-.field .field__radio--age{
-    display: inline-block;
-    width: 15.0%;
-    height: 50px;
-    border: 1px solid #ffffff;
-    padding-top: 15px;
+.lecture__intro h4 {
     text-align: center;
-    font-size: 14px;
-    margin-right: 5px;
 }
 
-.fieid--starpoint{
-    padding-bottom: 40px;
-}
-
-
-.field__radio--point{
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    font-size: 40px;
-    text-align: center;
-    color: #777777;
-    cursor: pointer;
-}
-.field__radio--point.staron{
-    margin-left: 0;
-    color: #FFD700;
-}
-
-.review__form {
-    margin: 100px auto 0 auto;
-    width : 100%;
-}
-
-.review__field {
-    display: flex;
-    justify-content: center;
-}
-
-.review--text {
-    height: 100px;
+.lecture--intro {
+    margin: 0 10px;
 }

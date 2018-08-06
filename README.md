@@ -150,6 +150,17 @@ Ruby on Rails Project for LIKELION 6th Hackerton
     6. 강연 사진 업로드 기능 넣기 / 8.2 완료
     
     7. js파일 각각 필요한 파일에서 수행되도록 파일 분리 및 수정 / 8.1 완료
+
+### 08.06 Monday
+
+    - 기본 전체 페이지 디자인 구현
+    이제 로그인 시 마이페이지 기능과 강사 및 강연 수정 기능 필요
+    
+    - 모바일 고려 반응형 디자인 필요
+    
+    - 회원가입 폼 수정 필요
+    
+    - 강사 보러가기 구현 필요
     
 ## ※ 참고
 
@@ -172,5 +183,9 @@ Ruby on Rails Project for LIKELION 6th Hackerton
 - ```srh```
 
 srh가 붙어있는 class는 아이디, 비밀번호 찾기와 관련된 class
+
+- `review`
+
+review 관련 class
 
 ### back-end

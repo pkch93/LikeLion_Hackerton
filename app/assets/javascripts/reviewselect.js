@@ -12,5 +12,21 @@ for(var i = 0; i < generation.length; i++){
 $('.field--starpoint span').click(function(){
   $(this).parent().children('span').removeClass('staron');
   $(this).addClass('staron').prevAll('span').addClass('staron');
+  var x = parseInt($(this).attr('value'));
+  $("#point").val(x);
   return false;
+});
+
+/* review form modal */
+
+var btn = $("#write__review");
+var close = $(".modal--close");
+var modal = $("#review__modal");
+
+btn.on("click", function(){
+   modal.css("display", "block");
+});
+
+close.on("click", function(){
+    modal.css("display", "none");
 });

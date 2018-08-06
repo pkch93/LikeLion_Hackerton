@@ -17,9 +17,9 @@
                     <%= select_tag :phone1,
                     options_for_select([["010"], ["011"], ["016"], ["017"], ["018"], ["019"]], class: "srh__main--phone")%>
                     -
-                    <%= text_field_tag :phone2, "", {size: 1 , class: "srh__main--phone" }%>
+                    <%= text_field_tag :phone2, "", {size: 4, class: "srh__main--phone" }%>
                     -
-                    <%= text_field_tag :phone3, "", {size: 1, class: "srh__main--phone"} %>
+                    <%= text_field_tag :phone3, "", {size: 4, class: "srh__main--phone"} %>
                 </div>
                 <div class="srh__main--elt">
                     <%= label_tag :email, "이메일 주소 ", class: "srh__main--label" %><br/>
@@ -45,12 +45,12 @@
                     <%= text_field_tag :id, "", class: "srh__main--input" %>
                 </div>
                 <div class="srh__main--elt">
-                   <%= label_tag :name, "이름 ", class: "srh__main--label"%>
-                    <%= text_field_tag :name, "", class: "srh__main--input" %>
+                   <%= label_tag :pw_name, "이름 ", class: "srh__main--label"%>
+                    <%= text_field_tag :pw_name, "", class: "srh__main--input" %>
                 </div>
                 <div class="srh__main--elt">
-                    <%= label_tag :email, "이메일 주소 ", class: "srh__main--label" %>
-                    <%= email_field_tag :email, "", class: "srh__main--input" %>
+                    <%= label_tag :pw_email, "이메일 주소 ", class: "srh__main--label" %>
+                    <%= email_field_tag :pw_email, "", class: "srh__main--input" %>
                 </div>
                 <div class="srh__main--elt">
                     <%= submit_tag "찾기", class: "srh__main--submit" %>
