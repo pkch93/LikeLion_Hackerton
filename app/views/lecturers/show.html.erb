@@ -1,75 +1,53 @@
-<h1>강사 프로필 및 강연 목록</h1>
 
 <%#
 1. 강사 사진 및 프로필이 왼쪽 화면에 위치
 2. 오른쪽에는 해당 강사의 강연 목록들이 배치
 %>
-<p>
-  <strong>Id:</strong>
-  <%= @lecturer.lec_id %>
-</p>
 
-<p>
-  <strong>Pw:</strong>
-  <%= @lecturer.pw %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @lecturer.name %>
-</p>
-
-<p>
-  <strong>Sex:</strong>
-  <%= @lecturer.sex %>
-</p>
-
-<p>
-  <strong>Age:</strong>
-  <%= @lecturer.age %>
-</p>
-
-<p>
-  <strong>Career:</strong>
-  <%= @lecturer.career %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @lecturer.phone %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @lecturer.email %>
-</p>
-
-<p>
-  <strong>Region:</strong>
-  <%= @lecturer.region %>
-</p>
-
-<p>
-  <strong>Intro:</strong>
-  <%= @lecturer.intro %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <ul>
-  <% @lecturer.lecturer_categories.each do |ct| %>
-    <li><%= ct.category %></li>
-  <% end %>
-  </ul>
-</p>
-
-<div class="lecture__list">
-  <% @lectures.each do |lec| %>
-    <p>강연제목 : <%=lec.title%></p>
-    <p>강연일시 : <%=lec.time%></p>
-    <p><%= link_to "강연 조회", lecture_path(lec) %></p>
-  <% end %>
+<div class='lecturer'>
+    <h1 class='lecturer--name'><%=@lecturer.name%> 강사</h1>
+    <div class='lecturer__introbox introbox'>
+        <div class='lecturer__profile'>
+              <%= image_tag "#{@lecturer.lec_img}", class: "lecturer__profile--img" %> <p/>
+               <table class="lecturer__table table" border="2">
+                <tr class="lecturer__tablerow table__row">
+                    <th class="lecturer__tablerow--sex table--elt">성별</th>
+                    <td class="lecturer__tablerow--sex table--elt"><%= @lecturer.sex %></td>
+                    <th class="lecturer__tablerow--age table--elt">나이</th>
+                    <td class="lecturer__tablerow--age table--elt"><%= @lecturer.age %></td>
+                </tr>
+                <tr class="lecturer__tablerow table__row">
+                    <th class="lecturer__tablerow--phone table--elt">연락처</th>
+                    <td class="lecturer__tablerow--phone table--elt" colspan="3"><%= @lecturer.phone %></td>
+                </tr>
+                <tr class="lecturer__tablerow table__row">
+                    <th class="lecturer__tablerow--email table--elt">이메일</th>
+                    <td class="lecturer__tablerow--email table--elt" colspan="3"><%= @lecturer.email %></td>
+                </tr> 
+                <tr class="lecturer__tablerow table__row">
+                    <th class="lecturer__tablerow--career table--elt">경력</th>
+                    <td class="lecturer__tablerow--career table--elt"><%= @lecturer.career %></td>
+                    <th class="lecturer__tablerow--region table--elt">주활동지역</th>
+                    <td class="lecturer__tablerow--region table--elt"><%= @lecturer.region %></td>
+                </tr>
+            </table>
+        </div>
+        <div class="lecturer__intro">
+            <h2 class="lecturer__intro--title">소개 글</h2>
+            <p class="lecturer__intro--content"><%= @lecturer.intro %></p>
+        </div>
+    </div>
+                
+   <h1 class="lecturer--name"><%=@lecturer.name%> 강사의 강연 목록</h1>
+   
+    <div class="lecture__menu">
+        <% @lectures.each do |lec| %>
+            <div class="lecture__menu--list">
+                <a href="<%=lecture_path(lec.id)%>">
+                    <%= image_tag "#{lec.lec_poster}", class: "lecture--img image"%>
+                    <p><%=lec.title%></p>
+                </a>
+            </div>
+        <% end %>
+    </div>
 </div>
-
-<%= link_to 'Edit', edit_lecturer_path(@lecturer) %> |
-<%= link_to 'Back', :back %>

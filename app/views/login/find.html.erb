@@ -14,7 +14,7 @@
                 </div>
                 <div class="srh__main--elt">
                     <%= label_tag :phone1, "휴대폰 번호 ", class: "srh__main--label" %><br/>
-                    <%= select_tag :phone,
+                    <%= select_tag :phone1,
                     options_for_select([["010"], ["011"], ["016"], ["017"], ["018"], ["019"]], class: "srh__main--phone")%>
                     -
                     <%= text_field_tag :phone2, "", {size: 1 , class: "srh__main--phone" }%>

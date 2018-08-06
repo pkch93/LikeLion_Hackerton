@@ -82,11 +82,16 @@
     .header--logo{
         display: block;
         width: 300px;
-        margin: 0 auto;    
+        margin: 0 auto;
     }
 }
 
 @media screen and (max-width: 750px){
+    .srh__container {
+        display: flex;
+        align-items: center;
+        margin: 100px;
+    }
     .idsrh, .pwsrh {
         width: 300px;
         height: 530px;

@@ -1,47 +1,47 @@
-<h1>강연 조회 및 리뷰 작성 페이지</h1>
-
 <%#
 1. 강연의 상세 조회가 가능한 페이지
 2. 왼쪽 상단에는 강연의 포스터, 오른쪽에는 강연 소개
 3. 페이지 하단에는 해당 강연을 본 관객들의 리뷰가 익명으로 개시
 %>
 
-<div>
-    <p>강연 이름</p>
-    <p><%= @lecture.title %></p>
-</div>
+<div class="lecture">
+    <h1 class="lecture--name titlename"><%=@lecture.title%></h1>
+    <div class="lecture__introbox introbox">
+        <%= image_tag "#{@lecture.lec_poster}", class: "lecture--poster"%>
+        <table class="lecture_table">
+            <tr>
+                <th>강연일시</th>
+                <td><%= @lecture.time %></td>
+            </tr>
+            <tr>
+                <th>강연주제</th>
+                <td><%= @lecture.subject %></td>
+            </tr>
+            <tr>
+                <th>강연소개</th>
+                <td><%= @lecture.intro %></td>
+                </tr>
+            </tr>
+        </table>
+    </div>
 
-<%# 리뷰 작성 폼 %>
-<%= form_for(@review, url: {controller: :lectures, action: :create_review}) do |f| %>
-    <%= f.hidden_field :lecture, value: @lecture.id %> 
-    <div class="field">
-        <%= f.label :sex, "작성자 성별" %>
-        <%= f.text_field :sex %>
-    </div>
-    <div class="field">
-        <%= f.label :age, "작성자 연령대" %>
-        <%= f.number_field :age %>
-    </div>
-    <div class="field">
-        <%= f.label :background, "배경지식" %>
-        <%= f.text_field :background %>
-    </div>
-    <div class="field">
-        <%= f.label :point, "평점" %>
-        <%= f.text_field :point %>
-    </div>
-    <div class="field">
-        <%= f.label :content, "리뷰 내용" %>
-        <%= f.text_area :content %>
-    </div>
-    <div class="field">
-        <%= f.submit "리뷰 작성" %>
-    </div>
-<% end %>
+<h1 class="titlename">Review</h1>
 
+<div class="reviews">
 <%# 해당 강연의 리뷰 목록%>
 <% @reviews.each do |r|%>
-    <div>
-        <%= r.content %>
+    <div class="reviews__container">
+        <p class="reviews--userdata"><%= r.age %>대 | <%= r.sex %> | <%= r.created_at.strftime("%F %H:%M") %></p>
+        <p><%= r.background %></p>
+        <p class="reviews--content"><%= r.content %></p>
+        <p class="reviews--evaluation"><%= r.point %></p>
     </div>
 <% end %>
+</div>
+
+<h1 class="titlename">Review Write</h1>
+<%# 리뷰 작성 폼 %>
+<%= render "review_form"%>
+
+<%= javascript_include_tag 'selectsex', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'reviewselect', 'data-turbolinks-track' => true %>

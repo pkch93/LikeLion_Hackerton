@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-html, body{
+html, body, .login{
     height: 100%;
 }
 
@@ -23,7 +23,7 @@ html, body{
     width: 100%;
     height: 75px;
     border: solid 1px #FFFFF0;
-    padding: 10px 30px 10px 10px;
+    padding: 10px 30px 10px 30px;
     margin: 10px 0;
     background: #DCDCDC;
     vertical-align: top;
@@ -42,6 +42,31 @@ html, body{
     margin-top: 8px;
 }
 
+.field .field__radio{
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.field .field__radio--male, .field .field__radio--female{
+    display: inline-block;
+    width: 49%;
+    margin: 0 auto;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ffffff;
+}
+
+.field input[type="radio"]:checked + span{
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.field .field__radio--button{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+}
 .field__label{
     font-weight: bold;
 }
@@ -61,10 +86,12 @@ html, body{
     color: #ffffff;
     font-size: 30px;
     margin: 10px 0;
+    cursor: pointer;
 }
 
 .intro_img{
     width: 100%;
+    margin-top: 55px;
     border: 1px white solid;
 }
 
@@ -78,22 +105,57 @@ html, body{
     margin: 0 auto;    
 }
 
+/* 검색창 스타일링 */
+
+.srhlecturer--content {
+    background-color: #fefefe;
+    margin: 2% auto; /* 15% from the top and centered */
+    padding: 20px;
+    width: 60%; /* Could be more or less, depending on screen size */                          
+}
+
+.srhlecturer--img{
+    width: 15px;
+    margin-right: 5px;
+}
+
+.srhlecturer--form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.srhlecturer--input {
+    width: 50%;
+    height: 30px;
+}
+
+.srhlecturer--submit {
+    border: none;
+    background-color: #000000;
+    color: #ffffff;
+    height: 30px;
+    margin-left: 5px;
+}
+
 /* 내비바 스타일링 */
 .navbar {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    grid-gap: 0 10px;
-    position: relative;
+    position: fixed;
     margin: 0 10px 10px 10px;
     top: 0;
     left: 0;
-    height: 50px;
+    width: 100%;
+    height: 55px;
+    padding-right: 20px;
+    background-color: #ffffff;
+    z-index: 1;
 }
 
 .navbar__list {
+    float: right;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    padding: 0;
 }
 
 .navbar .navbar__list--elt {
@@ -103,11 +165,12 @@ html, body{
 
 .navbar__list--elt > a {
     text-decoration: none;
-    color: black;    
+    color: black;
 }
 
 .navbar__list--elt > a:hover {
     color: #102E37;
+    cursor: pointer;
 }
 
 .information {
@@ -121,4 +184,239 @@ html, body{
     font-size: 13px;
     line-height: 20px;
     color: rgba(0,0,0,0.38);
+
+}
+
+.index_menu {
+    text-align: center;
+    font-family: 'Yeon Sung', cursive;    
+    color: #fff;
+    text-shadow: 0 0 60px #fff, 0 0 50px #fff, 0 0 40px #102e37, 0 0 30px #102e37, 0 0 20px #102e37, 0 0 10px #102e37;
+}
+
+.index_menu2 {
+    text-align: center;
+    font-family: 'Do Hyeon', sans-serif;    
+    color: #fff;
+    text-shadow: 0 0 60px #fff, 0 0 50px #fff, 0 0 40px #102e37, 0 0 30px #102e37, 0 0 20px #102e37, 0 0 10px #102e37;
+
+}
+
+/* lecturer 소개 창 스타일링 */
+
+.recentlec{
+    display: grid;
+    padding: 30px 5%;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 20px;
+    margin: 0 auto;
+}
+
+.recentlec__container {
+    border: 3px solid #d6dce5;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.recentlec__container:hover{
+    background-color: #D3D3D3;
+    opacity: 0.8;
+}
+
+.recentlec__image {
+    margin: 0 5px 5px 5px;
+    border-bottom: 3px solid #CDCDCD;
+}
+.lecturer--profile {
+    display: block;
+    margin: 10px auto;
+    width: 150px;
+    height: 200px;
+}
+
+.recentlec__content > h3, .recentlec__content > p{
+    text-align: center;
+    padding: 0 30px;
+}
+
+.recentlec__content--ct {
+    color: #4169E1;
+}
+
+#searchdiv {
+    margin: 100px 0;
+}
+
+#result {
+    margin-top : 100px;    
+}
+
+.count > p {
+    text-align: center;
+}
+
+.bottom_info {
+    margin: 0 100px;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-gap: 20px;
+}
+
+.footer--info{
+    height: 250px;
+}
+
+.footer--info > h1 {
+    color: #000000;
+}
+.map {
+    display: block;
+    width: 100%;
+    height: 100%;
+    // margin: 0 auto;
+}
+
+
+// 쇼페이지 스타일링
+
+.lecturer, .lecture {
+    margin: 80px 200px;
+}
+
+.introbox{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    margin-bottom: 100px;
+}
+
+.lecturer__profile--img{
+    display: block;
+    width: 240px;
+    height: 320px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.lecturer__table {
+    border-collapse: collapse;
+    text-align: center;
+    line-height: 1.5;
+    border: 1px solid #CCCCCC;
+    width:100%;
+    height:100px;
+}
+.table__row th {
+    width: 75px;
+    padding: 10px;
+    font-weight: bold;
+    color: #fff;
+    background: #e7708d;
+    margin: 20px 10px;
+}
+
+.table__row td {
+    width: 100px;
+    vertical-align: middle;
+}
+
+.lecturer__intro {
+    padding: 20px;
+    border: 1px dashed #CDCDCD;
+}
+
+.lecturer__intro--title{
+    margin: 100px;
+    text-align: center;   
+}
+.lecturer__intro--content{
+    text-align: center;
+}
+.lecture__menu{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 50px 0;
+    margin-top: 50px;
+}
+
+.lecture--img{
+    display: block;
+    margin: 10px auto;
+    width: 150px;
+    height: 200px;
+}
+
+.lecture__menu--list > a{
+    text-decoration: none;
+    color: #000000;
+}
+.lecture__menu--list {
+    width: 230px;
+    height: 300px;
+    border: 10px solid #D3D3D3;
+    border-radius: 10px;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.name {
+    width : 250px ;
+    height : 50px ;
+    background : hotpink;
+    color : white;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 25px;
+
+}
+
+.lecturer--name, .lecture--name, .titlename{
+    margin-bottom: 50px;
+    text-align: center;
+    font-family: 'Yeon Sung', cursive;   
+    color: #fff;
+    text-shadow: 0 0 60px #fff, 0 0 50px #fff, 0 0 40px #102e37, 0 0 30px #102e37, 0 0 20px #102e37, 0 0 10px #102e37;
+}
+.count {
+    font-size: 20px;
+    padding-bottom: 0px;
+    text-align: center;
+    font-family: 'Yeon Sung', cursive;   
+    color: #fff;
+    text-shadow: 0 0 60px #fff, 0 0 50px #fff, 0 0 40px #ff0000, 0 0 30px #ff0000, 0 0 20px #ff0000, 0 0 10px #ff0000;
+}
+.hyun {
+    text-align: center;
+    padding-top: 80px;
+    color: darkgrey;
+}
+
+.open {
+    width : 1500px ;
+    height : 250px ;
+    background-image: url("data:image/jpeg;base64,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");
+    color : white;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 0 0 60px #fff, 0 0 50px #fff, 0 0 40px #feff78, 0 0 30px #feff78, 0 0 20px #feff78, 0 0 10px #feff78;
+    z-index: 1;
+}
+
+.sale {
+    width : 250px ;
+    height : 50px ;
+    background : red;
+    color : white;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 25px;
+    z-index: 2;
+}
+
+.intro {
+    margin-right: 100px;
 }

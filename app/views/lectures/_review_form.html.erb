@@ -1,0 +1,54 @@
+<div class = "review__form">
+<%= form_for(@review, url: {controller: :lectures, action: :create_review}) do |f| %>
+    <%= f.hidden_field :lecture, value: @lecture.id %> 
+    <%= f.label :sex, "작성자 성별", class: "field__label" %>
+    <div class="field">
+        <%= f.radio_button :sex, "남", id: "lecturer_male", class: "field__radio--button"%>
+        <span class="field__radio--male field__radio">남자</span>
+        <%= f.radio_button :sex, "여", id: "lecturer_female", class: "field__radio--button"%>
+        <span class="field__radio--female field__radio">여자</span>
+    </div>
+    <%= f.label :age, "작성자 연령대", class: "field__label" %>
+    <div class="field review__field">
+        <%= f.radio_button :age, "10", id: "review-age-10", class: "field__radio--button"%>
+          <span class="field__radio--age field__radio" data-value="10">10대</span>
+        <%= f.radio_button :age, "20", id: "review-age-20", class: "field__radio--button"%>
+          <span class="field__radio--age field__radio" data-value="20">20대</span>
+        <%= f.radio_button :age, "30", id: "review-age-30", class: "field__radio--button"%>
+          <span class="field__radio--age field__radio" data-value="30">30대</span>
+        <%= f.radio_button :age, "40", id: "review-age-40", class: "field__radio--button"%>
+          <span class="field__radio--age field__radio" data-value="40">40대</span>
+        <%= f.radio_button :age, "50", id: "review-age-50", class: "field__radio--button"%>
+          <span class="field__radio--age field__radio" data-value="50">50대</span>
+        <%= f.radio_button :age, "60", id: "review-age-60", class: "field__radio--button"%>
+          <span class="field__radio--age field__radio" data-value="60">60대 이상</span>
+    </div>
+    <%= f.label :background, "배경지식", class: "field__label" %>
+    <div class="field">
+        <%= select_tag :background, 
+        options_for_select([["이 분야를 처음 접합"], ["이 분야에 관심이 있지만 정보는 없음"],
+        ["이 분야에 관심이 있고 기초적인 정보는 알고 있음"], ["해당 분야의 지식이 있으며 지속적으로 관심을 가지고 있음 "],
+        ["해당 분야에 해박한 지식이 있으며 준전문가 수준임"]]), class: "field__selectbox" %>
+    </div>
+    <%= f.label :point, "평점", class: "field__label" %>
+    <div class="field field--starpoint">
+        <%= f.radio_button :point, 1, id: "point--1", class: "field__radio--button"%>
+          <span class="field__radio--point staron">★</span>
+        <%= f.radio_button :point, 2, id: "point--2", class: "field__radio--button"%>
+          <span class="field__radio--point">★</span>
+        <%= f.radio_button :point, 3, id: "point--3", class: "field__radio--button"%>
+          <span class="field__radio--point">★</span>
+        <%= f.radio_button :point, 4, id: "point--4", class: "field__radio--button"%>
+          <span class="field__radio--point">★</span>
+        <%= f.radio_button :point, 5, id: "point--5", class: "field__radio--button"%>
+          <span class="field__radio--point">★</span>
+    </div>
+    <%= f.label :content, "리뷰 내용", class: "field__label" %>
+    <div class="field field--text">
+        <%= f.text_area :content, class: "field--text review--text" %>
+    </div>
+    <div class="actions">
+        <%= f.submit "리뷰 작성", class: "field field--submit field__review--submit" %>
+    </div>
+<% end %>
+</div>

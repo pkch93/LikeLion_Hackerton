@@ -13,18 +13,24 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 
-var btn = document.getElementById("search__modal");
+// scrollinto view
 
-var modal = document.getElementsByClassName("srhmodal")[0];
 
-btn.addEventListener("click", function(){
-    modal.style.display = "block";
-})
+var toSearch = function(){
+    var url = window.location.pathname;
+    if(url !== "/") window.location.href = "https://likelion-hackerton-chorizzori.c9users.io/#searchhide";
+    else document.getElementById("searchhide").scrollIntoView({block: 'start', behavior: 'smooth'});
+};
 
-window.onclick = function(e){
-    if(e.target == modal){
-        modal.style.display = "none";
-    }
+var toPopular = function(){
+    var url = window.location.pathname;
+    if(url !== "/") window.location.href = "https://likelion-hackerton-chorizzori.c9users.io/#searchdiv";
+    else document.getElementById("searchdiv").scrollIntoView({block: 'start', behavior: 'smooth'});
+};
+
+var toInfo = function(){
+    var url = window.location.pathname;
+    if(url !== "/") window.location.href = "https://likelion-hackerton-chorizzori.c9users.io/#infohide";
+    else document.getElementById("infohide").scrollIntoView({block: 'start', behavior: 'smooth'});
 }

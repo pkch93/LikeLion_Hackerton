@@ -2,6 +2,7 @@ class Lecturer < ActiveRecord::Base
     has_many :lectures
     has_many :lecturer_categories
     
+    mount_uploader :lec_img, ImageUploader
     validates :lec_id, :pw, :name, presence: true
     
     validates :lec_id,
@@ -21,5 +22,7 @@ class Lecturer < ActiveRecord::Base
     
     validates :career,
         numericality: {only_integer: true, greater_than_or_equal_to: 0, less_than: 50}
-
+        
+    validates :shortintro,
+        length: {maximum: 15}
 end

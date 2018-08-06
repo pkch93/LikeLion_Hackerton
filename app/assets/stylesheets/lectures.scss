@@ -1,3 +1,88 @@
 // Place all the styles related to the Lectures controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.lecture--poster{
+    display: block;
+    width: 300px;
+    height: 400px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 0 auto;
+}
+.lecture_table {
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin-right: auto;
+    margin-left: auto;
+    
+}
+.lecture_table th {
+    width: 150px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    color: #fff;
+    background: #e7708d;
+    margin: 20px 10px;
+}
+
+.lecture_table td {
+    width: 350px;
+    padding: 10px;
+    vertical-align: top;
+}
+
+/* 리뷰 목록 */
+.reviews {
+    margin-right : auto;
+    margin-left : auto;
+    width : 1000px;
+}
+
+/* 리뷰 폼 */
+.field .field__radio--age{
+    display: inline-block;
+    width: 15.0%;
+    height: 50px;
+    border: 1px solid #ffffff;
+    padding-top: 15px;
+    text-align: center;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.fieid--starpoint{
+    padding-bottom: 40px;
+}
+
+
+.field__radio--point{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
+    text-align: center;
+    color: #777777;
+    cursor: pointer;
+}
+.field__radio--point.staron{
+    margin-left: 0;
+    color: #FFD700;
+}
+
+.review__form {
+    margin: 100px auto 0 auto;
+    width : 100%;
+}
+
+.review__field {
+    display: flex;
+    justify-content: center;
+}
+
+.review--text {
+    height: 100px;
+}

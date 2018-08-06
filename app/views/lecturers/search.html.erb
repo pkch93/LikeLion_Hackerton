@@ -1,3 +1,21 @@
-<% @lecturers.each do |lec|%>
-    <%=lec.name %>
-<% end %>
+<h1 id="result" class="index_menu">검색 결과</h1>  
+<hr width="500" size="5" color="#102e37">
+    <div class="recentlec">
+        <% @lecturers.each do |lecturer| %>
+            <div class="recentlec__container">
+                <div class="recentlec__image">  
+                    <a href="<%= lecturer_path(lecturer.id) %>"><%= image_tag "#{lecturer.lec_img}", class: "lecturer--profile" %></a>
+                </div>
+                <div class="recentlec__content">
+                    <p class="recentlec__content--ct">
+                        <% lecturer.lecturer_categories.each do |ct| %>
+                            <%= ct.category %>
+                        <% end %>
+                    </p>
+                    <h3 class="recentlec__content--name"><%= lecturer.name %></h3>
+                    <p class="recentlec__content--intro"><%= lecturer.shortintro %></p>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

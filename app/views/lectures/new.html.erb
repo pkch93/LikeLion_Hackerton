@@ -2,29 +2,26 @@
 
 <%= form_for(@lecture) do |f|%>
     <%= f.hidden_field :lecturer, value: current_user.id %>
+    <%= f.label :title, "강연 이름" %>
     <div class="field">
-        <%= f.label :title, "강연 이름" %>
         <%= f.text_field :title %>
     </div>
+    <%= f.label :time, "강연 일시" %>
     <div class="field">
-        <%= f.label :time, "강연 일시" %>
         <%= f.datetime_field :time %>
     </div>
+    <%= f.label :subject, "강연 주제" %>
     <div class="field">
-        <%= f.label :subject, "강연 주제" %>
         <%= f.text_field :subject %>
     </div>
+    <%= f.label :intro, "강연 소개" %>
     <div class="field">
-        <%= f.label :intro, "강연 소개" %>
         <%= f.text_area :intro %>
     </div>
+    <%= f.label :lec_poster, "강연 포스터 등록", class: "field__label" %><br>
     <div class="field">
-        <%= fields_for :lecture_categories do |cf| %>
-          <%= cf.label :lec_category, "카테고리" %><br>
-          <%= cf.text_field :lec_category %>
-        <% end %>
+        <%= f.file_field :lec_poster, accept: "image/jpeg, image/jpg, image/png", class: "field__input" %>
     </div>
-    <%# lecture_category DB에 카테고리가 저장되도록 Controller 수정 필요 %>
     <div class="field">
         <%= f.submit "강연등록" %>
     </div>

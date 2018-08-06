@@ -4,7 +4,9 @@ class LecturersController < ApplicationController
 
   def index
     @lecturers = Lecturer.all
-    
+    @lecturer_count = Lecturer.all.count
+    @lecture_count = Lecture.all.count
+    @review_count = Review.all.count
   end
 
   def show
@@ -70,6 +72,6 @@ class LecturersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lecturer_params
-      params.require(:lecturer).permit(:lec_id, :pw, :name, :sex, :age, :career, :phone, :email, :region, :intro)
+      params.require(:lecturer).permit(:lec_id, :pw, :name, :sex, :age, :career, :phone, :email, :region, :shortintro, :intro, :lec_img)
     end
 end

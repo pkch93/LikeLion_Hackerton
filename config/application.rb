@@ -24,5 +24,7 @@ module Workspace
     config.active_record.raise_in_transactional_callbacks = true
     # 모듈간 헬퍼가 겹치는 것을 방지하기 위한 설정
     config.action_controller.include_all_helpers = false
+    config.time_zone = 'Seoul'
+    config.active_record.default_timezone = :local
   end
 end

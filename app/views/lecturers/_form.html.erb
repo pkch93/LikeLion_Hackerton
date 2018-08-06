@@ -1,4 +1,4 @@
-<%= form_for(@lecturer) do |f| %>
+<%= form_for(@lecturer, html: {multipart: true}) do |f| %>
   <% if @lecturer.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@lecturer.errors.count, "error") %> prohibited this lecturer from being saved:</h2>
@@ -9,7 +9,6 @@
       </ul>
     </div>
   <% end %>
-  
   <%= f.label :lec_id, "아이디", class: "field__label"%><br>
   <div class="field">
     <%= f.text_field :lec_id, class: "field__input" %>
@@ -30,7 +29,10 @@
   </div>
   <%= f.label :sex, "성별", class: "field__label" %><br>
   <div class="field">
-    <%= f.text_field :sex, class: "field__input" %>
+      <%= f.radio_button :sex, "남", id: "lecturer_male", class: "field__radio--button"%>
+      <span class="field__radio--male field__radio">남자</span>
+      <%= f.radio_button :sex, "여", id: "lecturer_female", class: "field__radio--button"%>
+      <span class="field__radio--female field__radio">여자</span>
   </div>
   <%= f.label :age, "나이", class: "field__label" %><br>
   <div class="field">
@@ -51,6 +53,14 @@
   <%= f.label :region, "주활동지역", class: "field__label" %><br>
   <div class="field">
     <%= f.text_field :region, class: "field__input" %>
+  </div>
+  <%= f.label :lec_img, "프로필사진 등록", class: "field__label" %><br>
+  <div class="field">
+    <%= f.file_field :lec_img, accept: "image/jpeg, image/jpg, image/png", class: "field__input" %>
+  </div>
+  <%= f.label :shortintro, "소개 한마디", class: "field__label" %><br>
+  <div class="field">
+    <%= f.text_field :shortintro, class: "field__input", placeholder: "한줄 소개글을 적어주세요!(15자 이내)" %>
   </div>
   <%= f.label :intro, "소개글", class: "field__label" %><br>
   <div class="field field__text">

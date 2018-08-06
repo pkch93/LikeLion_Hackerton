@@ -12,9 +12,10 @@ class LoginController < ApplicationController
   
   def idfind
     name = params[:name]
-    phonenumber = params[:phonenumber]
+    phonenumber = params[:phone1] + params[:phone2] + params[:phone3]
+    email = params[:email]
     
-    @lec = Lecturer.where(name: name, phone: phonenumber) # 일치하지 않더라도 빈 객체가 return
+    @lec = Lecturer.where(name: name, phone: phonenumber, email: email) # 일치하지 않더라도 빈 객체가 return
     @user_name = name
     if @lec.empty?
       render text: "일치하는 아이디가 없습니다."
@@ -22,11 +23,11 @@ class LoginController < ApplicationController
   end
   
   def pwfind
-    find_id = params[:find_id]
+    id = params[:id]
     name = params[:name]
-    phonenumber = params[:phonenumber]
+    email = params[:email]
     
-    @lec = Lecturer.where(lec_id: find_id, name: name, phone: phonenumber)
+    @lec = Lecturer.where(lec_id: id, name: name, email: email)
     @user_name = name
     if @lec.empty?
       render text: "해당 정보로 가입된 회원이 없습니다."
