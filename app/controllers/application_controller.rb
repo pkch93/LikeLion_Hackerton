@@ -6,4 +6,8 @@ class ApplicationController < ActionController::Base
   def set_navbar
       @conditions = true
   end
+  
+  def current_user
+      @current_user ||= Lecturer.find_by(lec_id: session[:id])
+  end
 end

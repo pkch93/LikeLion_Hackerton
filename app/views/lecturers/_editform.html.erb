@@ -1,0 +1,73 @@
+<%= form_for(@lecturer, html: {multipart: true}) do |f| %>
+  <% if @lecturer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lecturer.errors.count, "error") %> prohibited this lecturer from being saved:</h2>
+      <ul>
+      <% @lecturer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.label :lec_id, "아이디",class: "field__label"%><br>
+  <div class="field">
+    <%= f.text_field :lec_id, disabled: true, class: "field__input" %>
+  </div>
+  <%= f.label :pw, "비밀번호", class: "field__label" %><br>
+  <div class="field">
+    <%= f.password_field :pw, class: "field__input" %>
+  </div>
+  <%= f.label :name, "이름", class: "field__label" %><br>
+  <div class="field">
+    <%= f.text_field :name, disabled: true, class: "field__input" %>
+  </div>
+    <%= fields_for :lecturer_categories do |cf| %>
+      <%= cf.label :category, "카테고리", class: "field__label" %><br>
+    <div class="field">
+      <%= cf.text_field :category, class: "field__input" %>
+    <% end %>
+  </div>
+  <%= f.label :sex, "성별", class: "field__label" %><br>
+  <div class="field field--sex">
+      <%= f.radio_button :sex, "남", id: "lecturer_male", class: "field__radio--button"%>
+      <span class="field__radio--male field__radio">남자</span>
+      <%= f.radio_button :sex, "여", id: "lecturer_female", class: "field__radio--button"%>
+      <span class="field__radio--female field__radio">여자</span>
+  </div>
+  <%= f.label :age, "나이", class: "field__label" %><br>
+  <div class="field">
+    <%= f.number_field :age, class: "field__input" %>
+  </div>
+  <%= f.label :career, "경력", class: "field__label" %><br>
+  <div class="field">
+    <%= f.number_field :career, class: "field__input" %>
+  </div>
+  <%= f.label :phone, "연락처", class: "field__label" %><br>
+  <div class="field">
+    <%= f.telephone_field :phone, class: "field__input" %>
+  </div>
+  <%= f.label :email, "이메일", class: "field__label" %><br>
+  <div class="field">
+    <%= f.email_field :email, class: "field__input" %>
+  </div>
+  <%= f.label :region, "주활동지역", class: "field__label" %><br>
+  <div class="field">
+    <%= f.text_field :region, class: "field__input" %>
+  </div>
+  <%= f.label :lec_img, "프로필사진 등록", class: "field__label" %><br>
+  <div class="field">
+    <%= f.file_field :lec_img, accept: "image/jpeg, image/jpg, image/png", class: "field__input" %>
+  </div>
+  <%= f.label :shortintro, "소개 한마디", class: "field__label" %><br>
+  <div class="field">
+    <%= f.text_field :shortintro, class: "field__input", placeholder: "한줄 소개글을 적어주세요!(15자 이내)" %>
+  </div>
+  <%= f.label :intro, "소개글", class: "field__label" %><br>
+  <div class="field field__text">
+    <%= f.text_area :intro, class: "field--text" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "회원정보수정", class: "field field--submit" %>
+    <%= link_to "회원탈퇴", lecturer_path, data: {method: :delete, confirm: "정말 탈퇴하시겠습니까?"}, class:"field field--submit field--exit"%>
+  </div>
+<% end %>

@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   get 'login/findresult'
   # review create route
   post 'lectures/create_review'
-  
+  # lecture list search route
+  get 'lecturers/lecturelist'
   # lecturer search route
   post 'lecturers/search'
   resources :lecturers

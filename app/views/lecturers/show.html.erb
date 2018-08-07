@@ -1,9 +1,3 @@
-
-<%#
-1. 강사 사진 및 프로필이 왼쪽 화면에 위치
-2. 오른쪽에는 해당 강사의 강연 목록들이 배치
-%>
-
 <div class='lecturer'>
     <h1 class='lecturer--name'><%=@lecturer.name%> 강사</h1>
     <div class='lecturer__introbox introbox'>
@@ -53,7 +47,8 @@
                     <% else %>
                         <%= image_tag "basic_lecture.JPG", class: "lecture--img image"%>
                     <% end %>
-                    <p><%=lec.title%></p>
+                    <p class="lecture__mylist--elt lecture__mylist--subject"><%= lec.subject %></p>
+                    <p class="lecture__mylist--elt lecture__mylist--title"><%= lec.title %></p>
                 </a>
             </div>
         <% end %>

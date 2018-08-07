@@ -14,7 +14,7 @@ html, body, .login{
 
 .container {
     width: 500px;
-    margin: 0 auto;
+    margin: 80px auto;
 }
 
 .field {
@@ -90,6 +90,17 @@ html, body, .login{
     cursor: pointer;
 }
 
+.actions{
+    display: flex;
+    justify-content: center;
+}
+
+.field--exit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+}
 .intro_img{
     width: 100%;
     margin-top: 55px;
@@ -136,42 +147,6 @@ html, body, .login{
     color: #ffffff;
     height: 30px;
     margin-left: 5px;
-}
-
-/* 내비바 스타일링 */
-.navbar {
-    position: fixed;
-    margin: 0 10px 10px 10px;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 55px;
-    padding-right: 20px;
-    background-color: #ffffff;
-    z-index: 1;
-}
-
-.navbar__list {
-    float: right;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 0;
-}
-
-.navbar .navbar__list--elt {
-    list-style: none;
-    font-size: 15px;
-}
-
-.navbar__list--elt > a {
-    text-decoration: none;
-    color: black;
-}
-
-.navbar__list--elt > a:hover {
-    color: #102E37;
-    cursor: pointer;
 }
 
 .information {
@@ -354,7 +329,7 @@ html, body, .login{
 }
 .lecture__menu--list {
     width: 230px;
-    height: 300px;
+    height: 320px;
     border: 10px solid #D3D3D3;
     border-radius: 10px;
     margin: 0 auto;
@@ -380,6 +355,7 @@ html, body, .login{
     color: #fff;
     text-shadow: 0 0 60px #fff, 0 0 50px #fff, 0 0 40px #102e37, 0 0 30px #102e37, 0 0 20px #102e37, 0 0 10px #102e37;
 }
+
 .count {
     font-size: 20px;
     padding-bottom: 0px;

@@ -23,11 +23,18 @@ class LecturesController < ApplicationController
   end
 
   def edit
+    @lecture = Lecture.find(params[:id])
   end
   
   def update
+    
   end
-
+  
+  def destroy
+    Lecture.find(params[:id]).destroy
+    redirect_to :back
+  end
+  
   def show
     @lecture = Lecture.find_by(id: params[:id])
     @reviews = Review.where(lecture_id: params[:id])

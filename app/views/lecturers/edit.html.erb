@@ -1,11 +1,8 @@
-<div class="lecturer__edit">
+<div class="lecturer__edit container">
     <div class="lecturer__edit__container">
-        <header class="lecturer__edit__header">
-            <%= image_tag "logo.png", class: "edit__header--logo" %>
-        </header>
-<%= render 'form' %>
-
-<%= link_to 'Show', @lecturer %> |
-<%= link_to 'Back', lecturers_path %>
+        <h1 class="titlename">회원정보수정</h1>
+        <%= render 'editform' %>
     </div>
 </div>
+
+<%= javascript_include_tag 'selectsex', 'data-turbolinks-track' => true %>

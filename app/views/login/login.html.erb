@@ -1,6 +1,6 @@
 <section class="login">
     <article class="login__container container">
-    <%= image_tag "logo.png", class: "header--logo login__header--logo"%>
+    <a href="/"><%= image_tag "logo.png", class: "header--logo login__header--logo"%></a>
     
     <%= form_tag(login_logincheck_path) do %>
         <%= label_tag :lec_id, '아이디', class: "field__label" %>

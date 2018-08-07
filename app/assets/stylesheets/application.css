@@ -23,6 +23,9 @@
     font-family: "Nanum Gothic", sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
 
 @media screen and (max-width: 880px){
     

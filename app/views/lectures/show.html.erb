@@ -42,7 +42,7 @@
             <p class="review--userdata"><%= r.age %>대 | <%= r.sex %> | <%= r.created_at.strftime("%F %H:%M") %></p>
             <p class="review__eval"><span class="review__eval--background"><%= r.background %></span> | 
                 <span class="review__eval--star">
-                    <%= make_star(r.point) %>
+                    <%= make_star r.point %>
                 </span>
             </p>
             <p class="review--content"><%= r.content %></p>

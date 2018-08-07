@@ -45,3 +45,42 @@
 .lecture--intro {
     margin: 0 10px;
 }
+
+/* 강연 등록 페이지 스타일링 */
+
+.field__date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.field__date--input {
+    height: 25px;
+}
+
+/* 내 강연 리스트 보기 스타일링 */
+
+.lecture__mylist {
+    grid-gap: 20px 50px;    
+}
+
+.lecture--mylist{
+    height: 350px;
+}
+
+.lecture__mylist .lecture__mylist--subject {
+    color: #191970;
+    opacity: 0.8;
+    font-size: 15px;
+}
+
+.lecture__mylist .lecture__mylist--title{
+    font-weight: bold;
+}
+
+.lecture__mylist .lecture--update:hover {
+    color: #0000ff;
+}
+
+.lecture__mylist .lecture--delete:hover{
+    color: #ff0000;
+}

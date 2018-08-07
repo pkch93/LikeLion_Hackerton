@@ -63,7 +63,11 @@ class LecturersController < ApplicationController
   def search
     @lecturers = Lecturer.where("NAME LIKE ?", "%#{params[:search_lec]}%").order(:name)
   end
-
+  
+  def lecturelist
+    @lectures = Lecture.where(lecturer: current_user.id)
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_lecturer
