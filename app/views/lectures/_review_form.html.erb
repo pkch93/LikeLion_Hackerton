@@ -1,4 +1,4 @@
-<div id="review__modal">
+<div class="review__modal target__modal">
   <div class="review__form modal__content">
   <span class="modal--close">&times;</span>
   <h1 class="titlename">Review Write</h1>
@@ -31,7 +31,7 @@
           <%= f.select :background, 
           options_for_select([["이 분야를 처음 접합"], ["이 분야에 관심이 있지만 정보는 없음"],
           ["이 분야에 관심이 있고 기초적인 정보는 알고 있음"], ["해당 분야의 지식이 있으며 지속적으로 관심을 가지고 있음 "],
-          ["해당 분야에 해박한 지식이 있으며 준전문가 수준임"]]), class: "field__selectbox" %>
+          ["해당 분야에 해박한 지식이 있으며 준전문가 수준임"]]), {}, class: "field__selectbox" %>
       </div>
       <%= f.label :point, "평점", class: "field__label review__label" %>
       <%= f.hidden_field :point, id: "point"%>
@@ -44,7 +44,7 @@
       </div>
       <%= f.label :content, "리뷰 내용", class: "field__label review__label" %>
       <div class="field field--text">
-          <%= f.text_area :content, class: "field--text review--text" %>
+          <%= f.text_area :content, placeholder: "최소 10자 이상 적어주세요!",class: "field--text review--text" %>
       </div>
       <div class="actions">
           <%= f.submit "리뷰 작성", class: "field field--submit field__review--submit" %>

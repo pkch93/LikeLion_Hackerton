@@ -13,29 +13,30 @@
             <%= image_tag "basic_lecture.JPG", class: "lecture--poster"%>
         <% end %>
         <div class="lecture__intro">
-            <table class="lecture_table">
-                <tr>
-                    <th>강연일시</th>
-                    <td><%= @lecture.time %></td>
+            <table class="lecture__table">
+                <tr class="lecturer__tablerow table__row">
+                    <th class="table--column">강연일시</th>
+                    <td class="table--elt"><%= @lecture.time %></td>
                 </tr>
-                <tr>
-                    <th>강연주제</th>
-                    <td><%= @lecture.subject %></td>
+                <tr class="lecturer__tablerow table__row">
+                    <th class="table--column">강연주제</th>
+                    <td class="table--elt"><%= @lecture.subject %></td>
+                </tr>
+                <tr class="lecturer__tablerow table__row">
+                    <th class="table--column">강연소개</th>
+                    <td class="lecturer__tablerow--intro table--elt"><%= @lecture.intro %></td>
                 </tr>
             </table>
-            <h4>강연소개</h4>
-            <p class="lecture--intro"><%= @lecture.intro %></p>
         </div>   
     </div>
 
 
-    <p id="write__review">리뷰작성하기</p>
+    <p class="modalopen review__write" data-modal="review">리뷰작성하기</p>
     <%# 리뷰 작성 폼 %>
     <%= render "review_form"%>
     
-    <h1 class="titlename">Review</h1>
-    
     <div class="reviews">
+    <h1 class="titlename">Review</h1>
     <%# 해당 강연의 리뷰 목록%>
     <% @reviews.each do |r|%>
         <div class="review__container">
@@ -53,3 +54,4 @@
 
 <%= javascript_include_tag 'selectsex', 'data-turbolinks-track' => true %>
 <%= javascript_include_tag 'reviewselect', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'modal', 'data-turbolinks-track' => true %>

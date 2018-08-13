@@ -1,14 +1,20 @@
 /* 내비바 스타일링 */
 .navbar {
     position: fixed;
-    margin: 0 10px 10px 10px;
+    margin: 0;
+    padding-right: 5px;
     top: 0;
     left: 0;
     width: 100%;
     height: 55px;
-    padding-right: 20px;
     background-color: #ffffff;
     z-index: 1;
+    font-family: 'PT Sans', Arial, sans-serif;
+    font-weight: bold;
+}
+
+.navbar__downdrop{
+    display: none;
 }
 
 .navbar__list {
@@ -21,6 +27,7 @@
 .navbar .navbar__list--elt {
     list-style: none;
     font-size: 15px;
+    cursor: pointer;
 }
 
 .navbar__list--elt > a {
@@ -30,7 +37,6 @@
 
 .navbar__list--elt > a:hover {
     color: #102E37;
-    cursor: pointer;
 }
 
 .mypage .navbar__mypage {
@@ -53,5 +59,73 @@
     text-decoration: none;
     color: #ffffff;
     text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+/* navbar 반응형 */
+
+.navbar--togglelist{
+    display: none;
+    position: fixed;
+    right: 0;
+    top: 55px;
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+    background-color: #000000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.navbar--togglelist .navbar__list--elt{
+    margin: 5px 0;
+}
+
+.navbar--togglelist .navbar__list--elt a{
+    color: #ffffff;
+}
+
+/* 강사보러가기 */
+.showctg {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Sit on top */
+    margin: 0 auto;
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.7);
+}
+
+.showctg__container {
+    display: flex;
+    justify-content: center;
+    ailgn-items: center;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 0 auto;
+    background-color: #cdcdcd;
+}
+
+.showctg__container li {
+    list-style: none;
+}
+
+.showctg__container .ctg--title{
+    display: block;
+    width: 105px;
+    background-color: #FF8C00;
+    color: #ffffff;
+    text-align: center;
+    padding: 5px 10px;
+    font-size: 15px;
+}
+
+
+.showctg__container .ctg--list{
+    margin-top: 10px;
+    padding-left: 5px;
+    font-size: 15px;
+    cursor: pointer;
+}

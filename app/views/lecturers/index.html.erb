@@ -1,55 +1,105 @@
 <%= image_tag "intro.gif", alt: "궁금한강사 소개 영상", id: "intro_img" ,class: "intro_img" %>
-<h3 class="hyun">궁금한강사 현황</h3>
-<div class="count">
-    <p> 강사 <%= @lecturer_count%>명 &nbsp;&nbsp; 강연 <%= @lecture_count%>개 &nbsp;&nbsp; 리뷰 <%= @review_count%>개 </p>
+<h3 class="title title--status">궁금한강사 현황</h3>
+<div class="status">
+    <div class="status__box status--lecture">
+        <%= image_tag "강연.png" %>
+        <p><span class="status--count"><%= @lecturer_count%></span>강사등록</p>
+    </div>
+    
+    <div class="status__box status--lecturer">
+        <%= image_tag "강사.png" %>
+        <p><span class="status--count"><%= @lecture_count%></span>강연등록</p>
+    </div>
+    
+    <div class="status__box status--review">
+        <%= image_tag "리뷰.png" %>
+        <p><span class="status--count"><%= @review_count%></span>리뷰등록</p>
+    </div>
 </div>
+
 <div id="searchhide"></div>
 <div id="searchdiv">
     <%= render 'searchlecturer' %>
 </div>
 
-<h1 id="popular" class="index_menu">인기 강사</h1>  
-<hr width="500" size="5" color="#102e37">
-    <div class="recentlec">
-        <% @lecturers.each do |lecturer| %>
-            <div class="recentlec__container">
-                <div class="recentlec__image">  
-                    <a href="<%= lecturer_path(lecturer.id) %>"><%= image_tag "#{lecturer.lec_img}", class: "lecturer--profile" %></a>
+<h1 id="popular" class="title--index">신규 강사</h1>  
+    <div class="lecturers indexlec">
+        <% @new_lecturers.each do |lecturer| %>
+            <div class="lecturer__container recentlec__container">
+                <div class="lec__image">
+                    <% if lecturer.lec_img.blank? %>
+                    <a href="<%= lecturer_path(lecturer.id) %>"><%= image_tag "basic_lecturer.JPG", class: "lecturer--profile" %></a>
+                    <% else %>
+                        <a href="<%= lecturer_path(lecturer.id) %>"><%= image_tag "#{lecturer.lec_img}", class: "lecturer--profile" %></a>
+                    <% end %>    
                 </div>
-                <div class="recentlec__content">
-                    <p class="recentlec__content--ct">
+                <div class="lec__content">
+                    <p class="lec__content--ct">
                         <% lecturer.lecturer_categories.each do |ct| %>
                             <%= ct.category %>
                         <% end %>
                     </p>
-                    <h3 class="recentlec__content--name"><%= lecturer.name %></h3>
-                    <p class="recentlec__content--intro"><%= lecturer.shortintro %></p>
+                    <h3 class="lec__content--name"><%= lecturer.name %></h3>
+                    <p class="lec__content--intro"><%= lecturer.shortintro %></p>
                 </div>
             </div>
         <% end %>
     </div>
-</div>
 
-<div class="open">
-    궁금한 강사 OPEN 기념<p/>
-    회원 가입한 강사는 50% 할인!!
+<h1 id="popular" class="title--index">인기 강사</h1>  
+    <div class="lecturers indexlec">
+        <% @popular_lecturers.each do |lecturer| %>
+            <div class="lecturer__container recentlec__container">
+                <div class="lec__image">
+                    <% if lecturer.lec_img.blank? %>
+                    <a href="<%= lecturer_path(lecturer.id) %>"><%= image_tag "basic_lecturer.JPG", class: "lecturer--profile" %></a>
+                    <% else %>
+                        <a href="<%= lecturer_path(lecturer.id) %>"><%= image_tag "#{lecturer.lec_img}", class: "lecturer--profile" %></a>
+                    <% end %>    
+                </div>
+                <div class="lec__content">
+                    <p class="lec__content--ct">
+                        <% lecturer.lecturer_categories.each do |ct| %>
+                            <%= ct.category %>
+                        <% end %>
+                    </p>
+                    <h3 class="lec__content--name"><%= lecturer.name %></h3>
+                    <p class="lec__content--intro"><%= lecturer.shortintro %></p>
+                </div>
+            </div>
+        <% end %>
+    </div>
+
+<%#
+<h1 class="titlename">궁금한 강사를 선택해야하는 이유</h1>
+
+<div class="box_subject">
+    <div class="left_box subject">대한민국 <br>최고의 <br>강사 보유</div>
+    <div class="center_box subject">대전광역시 <br> 유망 창업 <br>업종 선정</div>
+    <div class="right_box subject">P2P 투자 <br> 1억원 돌파</div>
 </div>
+<div class="open">
+    궁금한 강사 OPEN 기념
+    회원 가입한 강사는 50% 할인!!
+    <div class="sale">SALE</div>
+</div>
+%>
+
 
 <div id="infohide"></div>
-<!--<div id="infohide" class="count">-->
-<!--    <p> 강사 <%= @lecturer_count%>명 &nbsp;&nbsp; 강연 <%= @lecture_count%>개 &nbsp;&nbsp; 리뷰 <%= @review_count%>개 </p>-->
-<!--</div>-->
 <footer class="information">
-    <div class="bottom_info">
-        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3212.7547434564362!2d127.34211191458944!3d36.36671909968087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35654b8d2855a151%3A0xc0e31805438f6e32!2z7Lap64Ko64yA7ZWZ6rWQIOqzteqzvOuMgO2VmTXtmLjqtIA!5e0!3m2!1sko!2skr!4v1533095535393" frameborder="0" style="border:0" allowfullscreen></iframe>
-        <div class="footer--info">
-            <h1>(주) 궁금한강사</h1> </br>
+    <div class="info__box">
+        <iframe class="info--map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3212.7547434564362!2d127.34211191458944!3d36.36671909968087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35654b8d2855a151%3A0xc0e31805438f6e32!2z7Lap64Ko64yA7ZWZ6rWQIOqzteqzvOuMgO2VmTXtmLjqtIA!5e0!3m2!1sko!2skr!4v1533095535393" frameborder="0" style="border:0" allowfullscreen></iframe>
+        <div class="info__detail">
+            <h1 class="info__detail--company">(주) 궁금한강사</h1></br>
             주소 : 대전광역시 유성구 궁동로 
-            479, 공대 5호관 2층 </br> 
-            대표이사 : 이세록 | 사업자등록번호: 742-00-00000 </br>
-            전화번호 : 0000-0000 </br>
-            전자우편주소 : aaaaaa@aaaaa.com </br>
-            Copyright 궁금한강사 Corp. All rights reserved. </br>
+            479, 공대 5호관 2층</br> 
+            대표이사 : 이세록 | 사업자등록번호: 742-00-00000</br>
+            전화번호 : 0000-0000</br>
+            전자우편주소 : aaaaaa@aaaaa.com</br>
+            Copyright 궁금한강사 Corp. All rights reserved.</br>
         </div>
     </div>
 </footer>
+
+

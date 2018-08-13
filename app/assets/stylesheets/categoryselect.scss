@@ -1,0 +1,66 @@
+.selectctg, .ctg__modal{
+    display: none;
+    z-index: 1;
+    position: relative;
+    background-color: #CDCDCD;
+    margin: 0 auto;
+}
+.selectctg__container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #CDCDCD;
+}
+
+.ctg--close{
+    margin: 0 10px;
+}
+.selectctg li {
+    list-style: none;
+}
+
+.selectctg__box{
+    padding: 10px 0;
+    margin: 0 auto;
+}
+
+.selectctg .ctg--title {
+    display: block;
+    width: 105px;
+    background-color: #696969;
+    color: #ffffff;
+    text-align: center;
+    padding: 5px 10px;
+    font-size: 15px;
+}
+
+.selectctg .ctg--list{
+    margin-top: 10px;
+    padding-left: 5px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.onSelect {
+    padding: 5px;
+    background-color: #00008B;
+    color: #ffffff;
+}
+
+.ctgsearch--form{
+    width: 80%;
+    margin: 0 auto;
+    background-color: #cdcdcd;
+    padding: 10px 0;
+    border-bottom: 1px solid #000000;
+}
+
+.ctgsearch--submit{
+    padding: 10px;
+    margin-left: 20px;
+    background-color: #00008B;
+    color: #ffffff;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+}

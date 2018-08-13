@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 
-// scrollinto view
+/* scroll into view */
 
 
 var toSearch = function(){
@@ -34,3 +34,15 @@ var toInfo = function(){
     if(url !== "/") window.location.href = "https://likelion-hackerton-chorizzori.c9users.io/#infohide";
     else document.getElementById("infohide").scrollIntoView({block: 'start', behavior: 'smooth'});
 }
+
+$(document).ready(function(){
+   $(".navbar__downdrop").on("click", function(){
+   $(".navbar--togglelist").toggle();
+   
+   $(window).resize(function(){
+      if( screen.width > 725 ) {
+          $(".navbar--togglelist").hide();
+      }
+   });
+})
+});

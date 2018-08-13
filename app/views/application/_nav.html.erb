@@ -1,10 +1,29 @@
+
 <nav class="navbar">
     <a href="/"><%= image_tag 'logo.png', class: "navbar--logo" %></a>
+    <div class="navbar__downdrop"><i class="fas fa-bars"></i></div>
+    <ul class="navbar--togglelist">
+        <li class="navbar__list--elt"><a href="/">궁금한강사</a></li>
+        <li class="navbar__list--elt"><a onclick="toSearch();">강사검색</a></li>
+        <li class="navbar__list--elt"><a onclick="toPopular();">인기강사</a></li>
+        <li class="navbar__list--elt"><a class="modalopen" data-modal="showctg">강사보러가기</a></li>
+        <li class="navbar__list--elt"><a onclick="toInfo();">문의하기</a></li>
+        <% if current_user %>
+            <li class="navbar__list--elt"><a href="<%=lecturer_path(current_user.id)%>" class="navbar__mypage--elt">내 프로필 보기</a></li>
+            <li class="navbar__list--elt"><a href="<%=new_lecture_path%>" class="navbar__mypage--elt">강연등록</a></li>
+            <li class="navbar__list--elt"><a href="<%=lecturers_lecturelist_path%>" class="navbar__mypage--elt">강연목록보기</a></li>
+            <li class="navbar__list--elt"><a href="<%=edit_lecturer_path(current_user.id)%>" class="navbar__mypage--elt">개인정보수정</a></li>
+            <li class="navbar__list--elt"><a href="<%=login_logout_path%>" class="navbar__mypage--elt">로그아웃</a></li>
+        <% else %>
+            <li class="navbar__list--elt"><a href="<%=login_login_path%>">로그인</a></li>
+            <li class="navbar__list--elt"><a href="<%=new_lecturer_url%>">회원가입</a></li>
+        <% end %>
+    </ul>
     <ul class="navbar__list">
         <li class="navbar__list--elt"><a href="/">궁금한강사</a> |&nbsp;</li>
         <li class="navbar__list--elt"><a onclick="toSearch();">강사검색</a> |&nbsp;</li>
         <li class="navbar__list--elt"><a onclick="toPopular();">인기강사</a> |&nbsp;</li>
-        <li class="navbar__list--elt"><a href="#">강사보러가기</a> |&nbsp;</li>
+        <li class="navbar__list--elt"><a class="modalopen" data-modal="showctg">강사보러가기</a> |&nbsp;</li>
         <li class="navbar__list--elt"><a onclick="toInfo();">문의하기</a> |&nbsp;</li>
         <% if current_user %>
             <li class="navbar__list--elt mypage">마이페이지

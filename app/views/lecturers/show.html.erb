@@ -1,5 +1,5 @@
 <div class='lecturer'>
-    <h1 class='lecturer--name'><%=@lecturer.name%> 강사</h1>
+    <h1 class='lecturer--name titlename'><%=@lecturer.name%> 강사</h1>
     <div class='lecturer__introbox introbox'>
         <div class='lecturer__profile'>
             <% if !@lecturer.lec_img.blank? %>
@@ -7,36 +7,40 @@
             <% else %>
               <%= image_tag "basic_lecturer.JPG", class: "lecturer__profile--img" %>
             <% end %>
-               <table class="lecturer__table table" border="2">
+               <table class="lecturer__table">
                 <tr class="lecturer__tablerow table__row">
-                    <th class="lecturer__tablerow--sex table--elt">성별</th>
+                    <th class="lecturer__tablerow--sex table--column">성별</th>
                     <td class="lecturer__tablerow--sex table--elt"><%= @lecturer.sex %></td>
-                    <th class="lecturer__tablerow--age table--elt">나이</th>
+                </tr>
+                <tr class="lecturer__tablerow table__row">
+                    <th class="lecturer__tablerow--age table--column">나이</th>
                     <td class="lecturer__tablerow--age table--elt"><%= @lecturer.age %></td>
                 </tr>
                 <tr class="lecturer__tablerow table__row">
-                    <th class="lecturer__tablerow--phone table--elt">연락처</th>
+                    <th class="lecturer__tablerow--career table--column">경력</th>
+                    <td class="lecturer__tablerow--career table--elt"><%= @lecturer.career %></td>
+                </tr>
+                <tr class="lecturer__tablerow table__row">
+                    <th class="lecturer__tablerow--region table--column">주활동지역</th>
+                    <td class="lecturer__tablerow--region table--elt"><%= @lecturer.region %></td>
+                </tr>
+                <tr class="lecturer__tablerow table__row">
+                    <th class="lecturer__tablerow--phone table--column">연락처</th>
                     <td class="lecturer__tablerow--phone table--elt" colspan="3"><%= @lecturer.phone %></td>
                 </tr>
                 <tr class="lecturer__tablerow table__row">
-                    <th class="lecturer__tablerow--email table--elt">이메일</th>
+                    <th class="lecturer__tablerow--email table--column">이메일</th>
                     <td class="lecturer__tablerow--email table--elt" colspan="3"><%= @lecturer.email %></td>
                 </tr> 
-                <tr class="lecturer__tablerow table__row">
-                    <th class="lecturer__tablerow--career table--elt">경력</th>
-                    <td class="lecturer__tablerow--career table--elt"><%= @lecturer.career %></td>
-                    <th class="lecturer__tablerow--region table--elt">주활동지역</th>
-                    <td class="lecturer__tablerow--region table--elt"><%= @lecturer.region %></td>
-                </tr>
             </table>
         </div>
         <div class="lecturer__intro">
-            <h2 class="lecturer__intro--title">소개 글</h2>
+            <h2 class="lecturer__intro--title">소개글</h2>
             <p class="lecturer__intro--content"><%= @lecturer.intro %></p>
         </div>
     </div>
                 
-   <h1 class="lecturer--name"><%=@lecturer.name%> 강사의 강연 목록</h1>
+    <h1 class="lecturer--name"><%=@lecturer.name%> 강사의 강연 목록</h1>
    
     <div class="lecture__menu">
         <% @lectures.each do |lec| %>

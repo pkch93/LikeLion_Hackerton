@@ -3,7 +3,8 @@ class LecturersController < ApplicationController
   before_action :set_navbar, except: [:new]
 
   def index
-    @lecturers = Lecturer.all
+    @new_lecturers = Lecturer.all.order(id: :desc).limit(5)
+    @popular_lecturers = Lecturer.all.order(:id).limit(5)
     @lecturer_count = Lecturer.all.count
     @lecture_count = Lecture.all.count
     @review_count = Review.all.count
@@ -22,11 +23,14 @@ class LecturersController < ApplicationController
 
   def create
     @lecturer = Lecturer.new(lecturer_params)
-    lecturer_categories = LecturerCategory.new(params.require(:lecturer_categories).permit(:category))
+    @lecturer.phone = params[:phone1] + params[:phone2] + params[:phone3] 
+    @lecturer.email = params[:email] + "@" + params[:email_domain]
+    lecturer_categories = params.require(:lecturer_categories).permit(:category)
     respond_to do |format|
       if @lecturer.save
-        lecturer_categories.lecturer_id = @lecturer.id
-        lecturer_categories.save
+        lecturer_categories[:category].split(",").each do |ctg|
+          LecturerCategory.new(lecturer_id: @lecturer.id, category: ctg).save
+        end
         format.html { redirect_to @lecturer, notice: 'Lecturer was successfully created.' }
         format.json { render :show, status: :created, location: @lecturer }
       else
@@ -37,8 +41,21 @@ class LecturersController < ApplicationController
   end
 
   def update
+    @lecturer.phone = params[:phone1] + params[:phone2] + params[:phone3] 
+    @lecturer.email = params[:email] + "@" + params[:email_domain]
+    lecturer_categories = params.require(:lecturer_categories).permit(:category)
     respond_to do |format|
       if @lecturer.update(lecturer_params)
+        current_ctg = LecturerCategory.where(lecturer_id: @lecturer.id)
+        lecturer_categories[:category].split(",").each do |ctg|
+            count = 0
+            if current_ctg[count].nil?
+              LecturerCategory.new(category: ctg, lecturer_id: @lectruer.id).save
+            else 
+              current_ctg[count].update(category: ctg)
+              count += 1
+            end
+        end
         format.html { redirect_to @lecturer, notice: 'Lecturer was successfully updated.' }
         format.json { render :show, status: :ok, location: @lecturer }
       else
@@ -64,6 +81,13 @@ class LecturersController < ApplicationController
     @lecturers = Lecturer.where("NAME LIKE ?", "%#{params[:search_lec]}%").order(:name)
   end
   
+  def ctgsearch
+    categories = params.permit(:category)
+    keywords = categories[:category].split(",")
+    @lecturers = Lecturer.where(id: LecturerCategory.includes(:lecturer).select(:lecturer_id).where(category: keywords))
+    render lecturers_search_path
+  end
+  
   def lecturelist
     @lectures = Lecture.where(lecturer: current_user.id)
   end
@@ -76,6 +100,6 @@ class LecturersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lecturer_params
-      params.require(:lecturer).permit(:lec_id, :pw, :name, :sex, :age, :career, :phone, :email, :region, :shortintro, :intro, :lec_img)
+      params.require(:lecturer).permit(:lec_id, :pw, :pw_confirmation, :name, :sex, :age, :career, :region, :shortintro, :intro, :lec_img)
     end
 end

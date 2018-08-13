@@ -3,8 +3,10 @@
         <header class="join__header">
             <a href="/"><%= image_tag "logo.png", class: "join__header--logo header--logo" %></a>
         </header>
-<%= render 'joinform' %>
+        <%= render 'joinform' %>
     </div>
 </div>
-
 <%= javascript_include_tag 'selectsex', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'modal', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'ctgsetting', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'inputviewOnChange', 'data-turbolinks-track' => true %>

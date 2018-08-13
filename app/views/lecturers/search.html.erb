@@ -1,19 +1,25 @@
-<h1 id="result" class="index_menu">검색 결과</h1>  
-<hr width="500" size="5" color="#102e37">
-    <div class="recentlec">
+<h1 id="result" class="title--index">검색 결과</h1>  
+    <div class="lecturers">
+        <% if @lecturers.blank? %>
+            <h3>검색 결과가 없습니다.</h3>
+        <% end %>
         <% @lecturers.each do |lecturer| %>
-            <div class="recentlec__container">
-                <div class="recentlec__image">  
-                    <a href="<%= lecturer_path(lecturer.id) %>"><%= image_tag "#{lecturer.lec_img}", class: "lecturer--profile" %></a>
+            <div class="lecturer__container">
+                <div class="lec__image">  
+                    <% if lecturer.lec_img.blank? %>
+                    <a href="<%= lecturer_path(lecturer.id) %>"><%= image_tag "basic_lecturer.JPG", class: "lecturer--profile" %></a>
+                    <% else %>
+                        <a href="<%= lecturer_path(lecturer.id) %>"><%= image_tag "#{lecturer.lec_img}", class: "lecturer--profile" %></a>
+                    <% end %>    
                 </div>
-                <div class="recentlec__content">
-                    <p class="recentlec__content--ct">
+                <div class="lec__content">
+                    <p class="lec__content--ct">
                         <% lecturer.lecturer_categories.each do |ct| %>
                             <%= ct.category %>
                         <% end %>
                     </p>
-                    <h3 class="recentlec__content--name"><%= lecturer.name %></h3>
-                    <p class="recentlec__content--intro"><%= lecturer.shortintro %></p>
+                    <h3 class="lec__content--name"><%= lecturer.name %></h3>
+                    <p class="lec__content--intro"><%= lecturer.shortintro %></p>
                 </div>
             </div>
         <% end %>

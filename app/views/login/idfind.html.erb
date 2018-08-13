@@ -1,4 +1,8 @@
-<h1><%= @user_name %>님의 아이디 목록입니다.</h1>
+<div class="pwfind_subject"><%= @user_name %>님의 아이디 목록입니다.</div>
+
+<div class="pwfind_content">
+    아이디 <br/>
 <% @lec.each do |lec|%>
-    <p><%=lec.lec_id%></p>
+    <%=lec.lec_id%>
 <% end %>
+</div>

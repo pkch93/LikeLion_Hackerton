@@ -21,6 +21,14 @@
         <div class="field field__text">
             <%= f.text_area :intro, class:"field--text" %>
         </div>
+        <%= fields_for :lecture_categories do |cf| %>
+          <%= cf.label :category, "카테고리", class: "field__label" %><br>
+        <div class="field">
+            <%= cf.hidden_field :category, value: "" %>
+            <span class="field--ctg modalopen" data-modal="ctg">카테고리설정</span>
+        </div>
+        <% end %>
+        <%= render "selectctg"%>
         <%= f.label :lec_poster, "강연 포스터 등록", class: "field__label" %><br>
         <div class="field ">
             <%= f.file_field :lec_poster, accept: "image/jpeg, image/jpg, image/png", class: "field__input" %>
@@ -30,3 +38,6 @@
         </div>
     <% end %>
 </div>
+
+<%= javascript_include_tag 'modal', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'ctgsetting', 'data-turbolinks-track' => true %>

@@ -10,9 +10,13 @@ class LecturesController < ApplicationController
   def create
     @lecture = Lecture.new(set_lecture)
     @lecture.lecturer_id = params[:lecture][:lecturer]
+    lecture_categories = params.require(:lecture_categories).permit(:category)
     # params 정보 가져오는 방법
     respond_to do |format|
       if @lecture.save
+        lecture_categories[:category].split(",").each do |ctg|
+          LectureCategory.new(lecture_id: @lecture.id, lec_category: ctg).save
+        end
         format.html { redirect_to @lecture, notice: 'Lecturer was successfully created.' }
         format.json { render :show, status: :created, location: @lecturer }
       else

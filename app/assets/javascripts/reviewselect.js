@@ -16,17 +16,3 @@ $('.field--starpoint span').click(function(){
   $("#point").val(x);
   return false;
 });
-
-/* review form modal */
-
-var btn = $("#write__review");
-var close = $(".modal--close");
-var modal = $("#review__modal");
-
-btn.on("click", function(){
-   modal.css("display", "block");
-});
-
-close.on("click", function(){
-    modal.css("display", "none");
-});

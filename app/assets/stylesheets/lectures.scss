@@ -7,43 +7,39 @@
     width: 300px;
     height: 400px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    margin: 0 auto;
+    margin: 20px;
 }
-.lecture_table {
-    border-collapse: collapse;
-    text-align: left;
-    line-height: 1.5;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    margin-right: auto;
-    margin-left: auto;
+// .lecture_table {
+//     border-collapse: collapse;
+//     text-align: left;
+//     line-height: 1;
+//     // border-top: 1px solid #ccc;
+//     // border-bottom: 1px solid #ccc;
+//     margin-right: auto;
+//     margin-left: auto;
     
+// }
+
+.lecture__table{
+    width: 300px;
 }
-.lecture_table th {
-    width: 150px;
+.lecture__table th {
+    width: 30%;
     padding: 10px;
     font-weight: bold;
-    vertical-align: top;
     color: #fff;
-    background: #e7708d;
+    background: #a5d5f3;
     margin: 20px 10px;
 }
 
-.lecture_table td {
-    width: 350px;
+.lecture__table td {
+    width: 70%;
     padding: 10px;
-    vertical-align: top;
+    vertical-align: middle;
 }
 
-.lecture__intro {
-    border: 1px dashed #CDCDCD;
-}
-.lecture__intro h4 {
-    text-align: center;
-}
-
-.lecture--intro {
-    margin: 0 10px;
+.lecturer__tablerow--intro{
+    height: 320px;
 }
 
 /* 강연 등록 페이지 스타일링 */
@@ -59,6 +55,9 @@
 
 /* 내 강연 리스트 보기 스타일링 */
 
+.mylecture {
+    margin: 80px auto;
+}
 .lecture__mylist {
     grid-gap: 20px 50px;    
 }

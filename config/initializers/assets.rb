@@ -12,3 +12,7 @@ Rails.application.config.assets.version = '1.0'
 
 Rails.application.config.assets.precompile += %w(selectsex.js)
 Rails.application.config.assets.precompile += %w(reviewselect.js)
+Rails.application.config.assets.precompile += %w(modal.js)
+Rails.application.config.assets.precompile += %w(ctgsetting.js)
+Rails.application.config.assets.precompile += %w(ctgsearch.js)
+Rails.application.config.assets.precompile += %w(inputviewOnChange.js)

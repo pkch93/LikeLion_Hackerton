@@ -7,7 +7,7 @@
 
 /* 리뷰 폼 */
 
-#write__review{
+.review__write{
     display: inline-block;
     padding: 20px;
     background-color: #191970;
@@ -15,7 +15,7 @@
     cursor: pointer;
     margin-left: 17%;
 }
-#review__modal{
+.review__modal{
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -24,13 +24,11 @@
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: #ffffff;
     background-color: rgba(0,0,0,0.7);
 }
 
 .modal--close{
-    display: block;
-    float: right;
+    display: inline-block;
     font-size: 50px;
     color: #ffffff;
     cursor: pointer;
@@ -38,7 +36,7 @@
 
 .field .field__radio--age{
     display: inline-block;
-    width: 15.0%;
+    width: 70px;
     height: 50px;
     border: 1px solid #ffffff;
     padding-top: 15px;
@@ -47,6 +45,9 @@
     margin-right: 5px;
 }
 
+.field .field__selectbox{
+    width: 100%;
+}
 
 .field__radio--point{
     display: inline-block;
@@ -82,7 +83,7 @@
 /* review 목록 */
 
 .reviews {
-  width: 70%;
+  width: 80%;
   margin: 0 auto;
 }
 

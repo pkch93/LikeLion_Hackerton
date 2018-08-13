@@ -3,4 +3,7 @@ class Review < ActiveRecord::Base
     
     validates :sex, :age, :background, :content,
         presence: true
+    
+    validates :content,
+        length: {minimum: 10}
 end

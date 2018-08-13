@@ -17,16 +17,22 @@
   <div class="field">
     <%= f.password_field :pw, class: "field__input" %>
   </div>
+  <%= f.label :pw_confirmation, "비밀번호 확인", class: "field__label" %><br>
+  <div class="field">
+    <%= f.password_field :pw_confirmation, class: "field__input" %>
+  </div>
   <%= f.label :name, "이름", class: "field__label" %><br>
   <div class="field">
     <%= f.text_field :name, disabled: true, class: "field__input" %>
   </div>
     <%= fields_for :lecturer_categories do |cf| %>
       <%= cf.label :category, "카테고리", class: "field__label" %><br>
-    <div class="field">
-      <%= cf.text_field :category, class: "field__input" %>
+      <div class="field">
+        <%= cf.hidden_field :category, value: "" %>
+      <span class="field--ctg modalopen">카테고리설정</span>
     <% end %>
   </div>
+  <%= render "selectctg"%>
   <%= f.label :sex, "성별", class: "field__label" %><br>
   <div class="field field--sex">
       <%= f.radio_button :sex, "남", id: "lecturer_male", class: "field__radio--button"%>
@@ -42,17 +48,24 @@
   <div class="field">
     <%= f.number_field :career, class: "field__input" %>
   </div>
-  <%= f.label :phone, "연락처", class: "field__label" %><br>
+   <%= f.label :phone, "연락처", class: "field__label" %><br>
   <div class="field">
-    <%= f.telephone_field :phone, class: "field__input" %>
+    <%= select_tag :phone1,
+    options_for_select([["010"], ["011"], ["016"], ["017"], ["018"], ["019"]]), class: "srh__main--phone"%>
+    <span class="text__center">-</span>
+    <%= text_field_tag :phone2, "", {size: 10, class: "srh__main--phone" }%>
+    <span class="text__center">-</span>
+    <%= text_field_tag :phone3, "", {size: 10, class: "srh__main--phone"} %>
   </div>
   <%= f.label :email, "이메일", class: "field__label" %><br>
   <div class="field">
-    <%= f.email_field :email, class: "field__input" %>
+    <%= text_field_tag :email, "", class: "field__input field--email" %><span class="text__center">@</span><%= text_field_tag :email_domain, "", class: "input__view field__input field--email" %>
+    <%= select_tag :email_list, options_for_select([["도메인 선택", ""], ["naver.com"], ["hanmail.net"], ["nate.com"], ["gmail.com"], ["daum.net"], ["hotmail.com"], ["lycos.co.kr"], ["msn.com"], ["직접 입력", ""]]), class: "input__included field__input" %>
   </div>
   <%= f.label :region, "주활동지역", class: "field__label" %><br>
   <div class="field">
-    <%= f.text_field :region, class: "field__input" %>
+    <%= f.select :region,
+    options_for_select([["서울"], ["인천"], ["부산"], ["대구"], ["울산"], ["광주"], ["대전"], ["경기"], ["강원"], ["충북"], ["충남"], ["전북"], ["전남"], ["경북"], ["경남"],["제주"]]), {}, class: "field__input field--region" %>
   </div>
   <%= f.label :lec_img, "프로필사진 등록", class: "field__label" %><br>
   <div class="field">

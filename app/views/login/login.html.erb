@@ -1,15 +1,15 @@
 <section class="login">
     <article class="login__container container">
     <a href="/"><%= image_tag "logo.png", class: "header--logo login__header--logo"%></a>
-    
+    <p class="inputalert loginalert"><%=alert%></p>
     <%= form_tag(login_logincheck_path) do %>
         <%= label_tag :lec_id, '아이디', class: "field__label" %>
         <div class="field">
-            <%= text_field_tag :lec_id, "", class: "field__input" %>
+            <%= text_field_tag :lec_id, "", required: true, class: "field__input" %>
         </div>
         <%= label_tag :lec_pw, '비밀번호', class: "field__label" %>
         <div class="field">
-            <%= password_field_tag :lec_pw, "", class: "field__input" %>
+            <%= password_field_tag :lec_pw, "", required: true, class: "field__input" %>
         </div>
         <div class="action">
             <%= submit_tag "로그인", data: {disable_with: "로그인 처리 중.."}, class: "field field--submit"%>

@@ -1,9 +1,9 @@
 class Lecturer < ActiveRecord::Base
-    has_many :lectures
-    has_many :lecturer_categories
+    has_many :lectures, dependent: :delete_all
+    has_many :lecturer_categories, dependent: :delete_all
     
     mount_uploader :lec_img, ImageUploader
-    validates :lec_id, :pw, :name, presence: true
+    validates :lec_id, :pw, :name, :phone, :email, :shortintro, presence: true
     
     validates :lec_id,
         presence: true, # 값이 비었는지 확인

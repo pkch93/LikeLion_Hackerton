@@ -81,6 +81,18 @@ html, body, .login{
     width: 100%;
     height: 125px;
 }
+
+.field .field--ctg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 50px;
+    background-color: #191970;
+    color: #ffffff;
+    cursor: pointer;
+}
+
 .field--submit {
     background-color: #191970; /* MidNightBlue*/
     border: none;
@@ -89,7 +101,17 @@ html, body, .login{
     margin: 10px 0;
     cursor: pointer;
 }
+.input--phone{
+    width: 80px;
+}
 
+.text__center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    color: #696969;
+}
 .actions{
     display: flex;
     justify-content: center;
@@ -121,53 +143,39 @@ html, body, .login{
 
 .srhlecturer--content {
     background-color: #fefefe;
-    margin: 2% auto; /* 15% from the top and centered */
+    margin: 2% auto;
     padding: 20px;
-    width: 60%; /* Could be more or less, depending on screen size */                          
+    width: 60%;
 }
 
 .srhlecturer--img{
     width: 15px;
-    margin-right: 5px;
+    margin-left: 5px;
+    cursor: pointer;
 }
 
 .srhlecturer--form{
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    margin: 0 auto;
 }
 .srhlecturer--input {
-    width: 50%;
+    width: 80%;
     height: 30px;
 }
 
-.srhlecturer--submit {
-    border: none;
-    background-color: #000000;
-    color: #ffffff;
-    height: 30px;
-    margin-left: 5px;
-}
 
-.information {
-    overflow: hidden;
-    clear: both;
-    position: relative;
-    margin-top: 120px;
-    padding: 63px 31px 40px 31px;
-    border-top: 1px solid rgba(0,0,0,0.08);
-    background: rgb(245,245,245);
-    font-size: 13px;
-    line-height: 20px;
-    color: rgba(0,0,0,0.38);
-
-}
-
-.index_menu {
+.title--index {
     text-align: center;
     font-family: 'Yeon Sung', cursive;    
     color: #fff;
     text-shadow: 0 0 60px #fff, 0 0 50px #fff, 0 0 40px #102e37, 0 0 30px #102e37, 0 0 20px #102e37, 0 0 10px #102e37;
+    border-bottom: 3px solid #102e37;
+    width: 50%;
+    margin: 50px auto;
+    padding-bottom: 25px;
 }
 
 .index_menu2 {
@@ -180,26 +188,28 @@ html, body, .login{
 
 /* lecturer 소개 창 스타일링 */
 
-.recentlec{
-    display: grid;
+.lecturers{
+    display: flex;
     padding: 30px 5%;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
     margin: 0 auto;
 }
 
-.recentlec__container {
+
+.lecturer__container {
+    width: 200px;
+    height: 380px;
     border: 3px solid #d6dce5;
     border-radius: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 10px;
 }
-
-.recentlec__container:hover{
+.lecturer__container:hover{
     background-color: #D3D3D3;
     opacity: 0.8;
 }
-
-.recentlec__image {
+.lec__image {
     margin: 0 5px 5px 5px;
     border-bottom: 3px solid #CDCDCD;
 }
@@ -210,12 +220,12 @@ html, body, .login{
     height: 200px;
 }
 
-.recentlec__content > h3, .recentlec__content > p{
+.lec__content > h3, .lec__content > p{
     text-align: center;
     padding: 0 30px;
 }
 
-.recentlec__content--ct {
+.lec__content--ct {
     color: #4169E1;
 }
 
@@ -231,41 +241,60 @@ html, body, .login{
     text-align: center;
 }
 
-.bottom_info {
-    margin: 0 100px;
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    grid-gap: 20px;
+.info__box {
+    margin: 0 10%;
+    display: flex;
+    width: 80%;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.footer--info{
+.info__detail{
+    font-size: 13px;
     height: 250px;
+    vertical-align: middle;
 }
 
-.footer--info > h1 {
+.info--detail .info__detail--company {
     color: #000000;
+    font-size: 40px;
+    font-weight: bold;
 }
-.map {
+.info--map {
     display: block;
-    width: 100%;
-    height: 100%;
-    // margin: 0 auto;
+    width: 450px;
+    height: 250px;
+    margin: 0 20px 20px 20px;
 }
 
+.information {
+    overflow: hidden;
+    clear: both;
+    position: relative;
+    margin-top: 120px;
+    padding: 63px 31px 40px 31px;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    background: rgb(245,245,245);
+    line-height: 20px;
+    color: rgba(0,0,0,0.38);
 
+}
 // 쇼페이지 스타일링
 
 .lecturer, .lecture {
-    margin: 80px 100px;
+    margin: 80px 0;
 }
 
 .introbox{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     margin-bottom: 100px;
 }
-
+.lecturer__profile, .lecturer__intro{
+    width: 350px;
+    margin: 5px;
+}
 .lecturer__profile--img{
     display: block;
     width: 240px;
@@ -275,28 +304,27 @@ html, body, .login{
 }
 
 .lecturer__table {
-    border-collapse: collapse;
     text-align: center;
     line-height: 1.5;
-    border: 1px solid #CCCCCC;
     width:100%;
     height:100px;
     margin-top: 10px;
+    border: "1";
 }
 .table__row th {
-    width: 75px;
+    width: 30%;
     padding: 10px;
     font-weight: bold;
     color: #fff;
-    background: #e7708d;
+    background: #a5d5f3;
     margin: 20px 10px;
 }
-
 .table__row td {
-    width: 100px;
-    vertical-align: middle;
+    padding: 10px;
+    width: 70%;
+    margin: 0 auto;
+    
 }
-
 .lecturer__intro {
     padding: 20px;
     border: 1px dashed #CDCDCD;
@@ -310,9 +338,9 @@ html, body, .login{
     text-align: center;
 }
 .lecture__menu{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 50px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     margin-top: 50px;
 }
 
@@ -332,7 +360,7 @@ html, body, .login{
     height: 320px;
     border: 10px solid #D3D3D3;
     border-radius: 10px;
-    margin: 0 auto;
+    margin: 10px auto;
     text-align: center;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -354,26 +382,38 @@ html, body, .login{
     font-family: 'Yeon Sung', cursive;   
     color: #fff;
     text-shadow: 0 0 60px #fff, 0 0 50px #fff, 0 0 40px #102e37, 0 0 30px #102e37, 0 0 20px #102e37, 0 0 10px #102e37;
+    font-size: 30px;
 }
 
-.count {
-    font-size: 20px;
-    padding-bottom: 0px;
-    text-align: center;
+.status {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     font-family: 'Yeon Sung', cursive;   
-    color: #fff;
-    text-shadow: 0 0 60px #fff, 0 0 50px #fff, 0 0 40px #ff0000, 0 0 30px #ff0000, 0 0 20px #ff0000, 0 0 10px #ff0000;
-}
-.hyun {
+    color: #102e37;
     text-align: center;
-    padding-top: 80px;
+}
+
+.status__box{
+    margin: 0 50px;    
+}
+
+.status--count {
+    display: block;
+    margin: 20px auto;
+    font-size: 50px;
+}
+
+.title.title--status{
+    text-align: center;
+    margin: 80px 0;
     color: darkgrey;
 }
 
 .open {
     width : 1500px ;
     height : 250px ;
-    background-image: url("data:image/jpeg;base64,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");
+    background-image: url("http://kstatic.inven.co.kr/upload/2016/09/08/bbs/m11741512232.jpg");
     color : white;
     border-radius: 10px;
     text-align: center;
@@ -382,19 +422,60 @@ html, body, .login{
     margin-right: auto;
     text-shadow: 0 0 60px #fff, 0 0 50px #fff, 0 0 40px #feff78, 0 0 30px #feff78, 0 0 20px #feff78, 0 0 10px #feff78;
     z-index: 1;
+    padding-top:100px;
 }
 
 .sale {
+    display: inline-block;
     width : 250px ;
     height : 50px ;
     background : red;
     color : white;
     border-radius: 10px;
-    text-align: center;
+    text-align: center; 
     font-size: 25px;
-    z-index: 2;
+    // z-index: 2;
 }
 
 .intro {
     margin-right: 100px;
 }
+
+.box_subject {
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 50px auto;
+    line-height:50px;
+    font-size:25px;
+    font-family:sans-serif;
+}
+
+.subject{
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    margin: 0 auto;
+    font-size: 25px;
+}
+.left_box {
+    width: 390px;
+    height: 250px;
+    color: white;
+    background-image: url('http://kyowondown-kyowondown.ktcdn.co.kr/kwlife/down/upload/Resources/images/img_main01.png');
+}
+
+.center_box {
+    width: 390px;
+    height: 250px;
+    color: white;
+    background-image: url('http://kyowondown-kyowondown.ktcdn.co.kr/kwlife/down/upload/Resources/images/img_main02.png');
+}
+
+.right_box {
+    width: 390px;
+    height: 250px;
+    color: white;
+    background-image: url('http://kyowondown-kyowondown.ktcdn.co.kr/kwlife/down/upload/Resources/images/img_main03.png');
+}
+
